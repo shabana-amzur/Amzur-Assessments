@@ -337,7 +337,7 @@ img {
   position: sticky;
   top: 0;
   align-self: start;
-  height: calc(100vh - 84px);
+  height: 100vh;
   overflow: hidden;
   padding: 42px 38px 34px;
   background: linear-gradient(170deg, var(--navy) 0%, #0a2140 68%, #071a34 100%);
