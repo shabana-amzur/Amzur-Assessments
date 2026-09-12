@@ -329,12 +329,15 @@ img {
 
 .reference-body {
   display: grid;
-  grid-template-columns: 360px minmax(0, 1fr);
+  grid-template-columns: 450px minmax(0, 1fr);
   min-height: calc(100vh - 84px);
 }
 
 .reference-rail {
-  position: relative;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: calc(100vh - 84px);
   overflow: hidden;
   padding: 42px 38px 34px;
   background: linear-gradient(170deg, var(--navy) 0%, #0a2140 68%, #071a34 100%);
@@ -425,7 +428,7 @@ img {
 }
 
 .reference-form {
-  width: min(100%, 860px);
+  width: min(100%, 1020px);
   margin: 0 auto;
   padding: 34px clamp(26px, 5vw, 92px) 42px;
 }
@@ -702,7 +705,7 @@ img {
   display: block;
   margin: 0 0 12px;
   color: var(--ink);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .question-header-row {
@@ -733,7 +736,7 @@ img {
   border-radius: 999px;
   background: #ffffff;
   color: #586f8f;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -784,11 +787,12 @@ img {
 .reference-choice b {
   display: block;
   color: var(--ink);
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .reference-choice small {
   margin-top: 4px;
+  font-size: 12px;
 }
 
 .reference-complexity {
@@ -919,7 +923,9 @@ img {
   }
 
   .reference-rail {
+    position: relative;
     min-height: 260px;
+    height: auto;
     padding: 30px 24px;
   }
 
