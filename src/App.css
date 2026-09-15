@@ -433,6 +433,9 @@ img {
   padding: 34px clamp(26px, 5vw, 92px) 42px;
 }
 
+.reference-body.report-mode { display: block; }
+.report-mode .reference-form { width: 100%; padding: 0; }
+
 .reference-progress {
   display: flex;
   flex-wrap: wrap;
@@ -976,4 +979,130 @@ img {
   .reference-next {
     width: 100%;
   }
+}
+
+/* Results dashboard */
+.report-page {
+  background: #f3f6fa;
+  color: #142c4d;
+}
+
+.report-hero {
+  min-height: 420px;
+  background: radial-gradient(circle at 75% 15%, #164987 0, #0b2241 48%, #081c35 100%);
+  color: #fff;
+}
+
+.report-hero-inner,
+.report-content {
+  width: min(100% - 40px, 980px);
+  margin: 0 auto;
+}
+
+.report-hero-inner {
+  padding: 20px 0 52px;
+  text-align: center;
+}
+
+.report-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 34px;
+}
+
+.report-toolbar button {
+  padding: 8px 12px;
+  border: 1px solid rgba(185, 216, 247, .3);
+  border-radius: 4px;
+  background: transparent;
+  color: #eef7ff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.report-toolbar button:last-child { background: rgba(255,255,255,.05); }
+.report-kicker { margin: 0 0 8px; color: #1684ff; font-size: 8px; font-weight: 800; letter-spacing: 1.2px; }
+.report-hero .report-kicker { color: #72d5ff; }
+.report-hero h2 { margin: 0; color: #fff; font-size: clamp(30px, 4vw, 44px); line-height: 1.03; letter-spacing: -.055em; font-weight: 500; }
+.report-intro { max-width: 470px; margin: 14px auto 26px; color: #aebed2; font-size: 10px; line-height: 1.45; }
+
+.loss-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; max-width: 700px; margin: 0 auto; text-align: left; }
+.loss-card { padding: 15px 16px 12px; border: 1px solid rgba(164, 202, 238, .24); border-radius: 6px; background: rgba(255,255,255,.08); }
+.loss-card:last-child { background: rgba(23, 105, 232, .35); border-color: rgba(59, 163, 255, .65); }
+.loss-card span, .loss-card small { display: block; color: #9db3cb; font-size: 7px; letter-spacing: 1px; }
+.loss-card strong { display: block; margin: 7px 0 3px; color: #fff; font-size: 21px; letter-spacing: -.04em; }
+.loss-card small { color: #b7c7da; letter-spacing: 0; text-transform: lowercase; }
+.report-footnote { margin: 11px 0 0; color: #91a6c0; font-size: 7px; }
+
+.report-content { position: relative; margin-top: -32px; padding-bottom: 34px; }
+.health-panel { display: grid; grid-template-columns: 1.15fr .85fr; gap: 25px; align-items: center; padding: 23px 26px; border-radius: 7px; background: #fff; box-shadow: 0 8px 20px rgba(24, 47, 75, .09); }
+.score-wrap { display: flex; align-items: center; gap: 18px; }
+.score-ring { display: grid; place-content: center; width: 68px; height: 68px; flex: 0 0 68px; border: 6px solid #1769e8; border-left-color: #e7edf4; border-radius: 50%; text-align: center; transform: rotate(-40deg); }
+.score-ring strong, .score-ring span { display: block; transform: rotate(40deg); }
+.score-ring strong { color: #142c4d; font-size: 17px; line-height: 1; }
+.score-ring span { margin-top: 2px; color: #6f8299; font-size: 7px; }
+.score-wrap h3, .compare-panel h3, .cause-section > h3, .priority-panel > h3 { margin: 0; color: #142c4d; font-size: 17px; line-height: 1.1; letter-spacing: -.04em; }
+.score-wrap > div:last-child > p:last-child, .compare-panel > div:first-child > p:last-child { max-width: 300px; margin: 7px 0 0; color: #71839a; font-size: 8px; line-height: 1.45; }
+.health-bars > div, .compare-bars > div { position: relative; margin: 8px 0; }
+.health-bars span, .compare-bars span { display: inline-block; color: #4b617c; font-size: 7px; }
+.health-bars b, .compare-bars b { float: right; color: #263e5c; font-size: 7px; }
+.health-bars i, .compare-bars i { display: block; clear: both; height: 2px; margin-top: 4px; background: #e6ecf3; }
+.health-bars em, .compare-bars em { display: block; height: 100%; background: #10bce8; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; margin-top: 10px; }
+.stat-grid > div { min-height: 91px; padding: 13px 13px 10px; border-radius: 6px; background: #fff; box-shadow: 0 5px 15px rgba(24,47,75,.05); }
+.stat-grid span { display: block; margin-bottom: 10px; color: #1769e8; font-size: 13px; }
+.stat-grid small, .stat-grid em { display: block; color: #8293a8; font-size: 7px; font-style: normal; }
+.stat-grid strong { display: block; margin: 4px 0; color: #142c4d; font-size: 13px; }
+
+.compare-panel { display: grid; grid-template-columns: 1fr 1.1fr; gap: 36px; margin-top: 28px; padding: 21px 24px; border: 1px solid #dce5ef; border-radius: 6px; background: #fff; }
+.compare-bars { padding-top: 2px; }
+.compare-bars em.orange { background: #f8a24b; }
+.compare-bars em.green { background: #20aa7e; }
+.cause-section { padding: 45px 0 32px; text-align: center; }
+.section-copy { max-width: 450px; margin: 8px auto 18px; color: #71839a; font-size: 8px; line-height: 1.4; }
+.cause-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; text-align: left; }
+.cause-grid article { min-height: 185px; padding: 14px 13px 11px; border: 1px solid #dce5ef; border-radius: 6px; background: #fff; }
+.cause-top { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.cause-top small { color: #8799ad; font-size: 7px; }
+.cause-top b { padding: 3px 5px; border-radius: 8px; font-size: 5px; letter-spacing: .5px; }
+.cause-top b.coral { background: #ffebe8; color: #ee725d; }
+.cause-top b.amber { background: #fff0dc; color: #dd8e2c; }
+.cause-grid .report-kicker { margin-bottom: 5px; font-size: 6px; }
+.cause-grid h4, .priority-row h4 { margin: 0; color: #142c4d; font-size: 11px; }
+.cause-score { display: flex; justify-content: space-between; margin-top: 10px; padding-bottom: 5px; border-bottom: 1px solid #e7edf3; color: #74869b; font-size: 6px; }
+.cause-score strong { color: #263e5c; }
+.cause-grid article > p:not(.report-kicker) { margin: 7px 0; color: #6d8097; font-size: 7px; line-height: 1.45; }
+.cause-grid footer { display: flex; align-items: center; gap: 8px; color: #7b8ca0; font-size: 6px; }
+.cause-grid footer i { flex: 1; height: 2px; background: #e0e8f0; }
+.cause-grid footer em { display: block; height: 100%; background: #1479ee; }
+
+.priority-panel { padding: 24px 26px 18px; border-radius: 7px; background: #fff; }
+.priority-row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #e5edf4; }
+.priority-row:last-child { border-bottom: 0; }
+.priority-row > span { display: grid; place-items: center; width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; background: #edf5ff; color: #1769e8; font-size: 8px; font-weight: 800; }
+.priority-row .report-kicker { margin-bottom: 3px; font-size: 6px; }
+.priority-row p:not(.report-kicker) { margin: 5px 0; color: #71839a; font-size: 7px; line-height: 1.4; }
+.priority-row b { color: #263e5c; font-size: 7px; }
+
+.report-cta { display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-top: 17px; padding: 24px 26px; border-radius: 7px; background: linear-gradient(105deg, #1769e8, #1261dd); color: #fff; }
+.report-cta .report-kicker { color: #a9e7ff; }
+.report-cta h3 { max-width: 390px; margin: 0; color: #fff; font-size: 18px; line-height: 1.1; letter-spacing: -.04em; }
+.report-cta p:last-child { max-width: 420px; margin: 8px 0 0; color: #c6e0ff; font-size: 8px; line-height: 1.4; }
+.report-cta a { display: inline-flex; align-items: center; justify-content: space-between; gap: 18px; min-width: 215px; padding: 12px 13px; border-radius: 4px; background: #fff; color: #1769e8; font-size: 8px; font-weight: 800; }
+.report-cta a b { font-size: 15px; }
+.report-disclaimer { display: flex; gap: 18px; padding: 14px 4px 0; color: #71839a; font-size: 6px; line-height: 1.4; }
+.report-disclaimer b { flex: 0 0 auto; color: #263e5c; }
+
+@media (max-width: 700px) {
+  .report-hero-inner, .report-content { width: min(100% - 28px, 980px); }
+  .loss-grid, .health-panel, .compare-panel, .cause-grid { grid-template-columns: 1fr; }
+  .report-hero { min-height: 500px; }
+  .health-panel { gap: 20px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .compare-panel { gap: 18px; }
+  .report-cta { align-items: stretch; flex-direction: column; }
+  .report-cta a { width: 100%; }
+  .report-disclaimer { flex-direction: column; gap: 5px; }
 }

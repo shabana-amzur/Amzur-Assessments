@@ -150,7 +150,7 @@ function AssessmentHub() {
     <main className="library-page">
       <header className="library-header">
         <a className="library-brand" href="/" aria-label="Amzur assessment library">
-          <img src="/amzur-logo.png" alt="Amzur" />
+          <img src="https://amzur.com/wp-content/uploads/2022/07/Amzur-logo-2022.png" alt="Amzur" />
         </a>
         <a className="contact-cta" href="https://amzur.com/contact-us/">
           Contact us <b>→</b>
@@ -476,13 +476,13 @@ function ReferenceCalculator() {
     <main className="reference-calculator">
       <header className="reference-header">
         <a className="brand" href="/" aria-label="Amzur assessment library">
-          <img src="/amzur-logo.png" alt="Amzur" />
+          <img src="https://amzur.com/wp-content/uploads/2022/07/Amzur-logo-2022.png" alt="Amzur" />
         </a>
         <span className="tool-label">CFO DECISION TOOL</span>
       </header>
 
-      <div className="reference-body">
-        <aside className="reference-rail">
+      <div className={`reference-body ${step === 4 ? 'report-mode' : ''}`}>
+        {step < 4 && <aside className="reference-rail">
           <div className="rail-copy">
             <b>SLOW CLOSE CALCULATOR</b>
             <h1>
@@ -503,7 +503,7 @@ function ReferenceCalculator() {
           </div>
 
           <div className="rail-circles" />
-        </aside>
+        </aside>}
 
         <section className="reference-form">
           {step < 4 && (
@@ -602,42 +602,48 @@ function ReferenceFrame({ eyebrow, title, description, children }) {
 }
 
 function ReferenceResults({ report, values, onRestart }) {
+  const rootCauses = [
+    {
+      number: '01', label: 'RECONCILIATION', title: 'Reconciliation',
+      detail: 'Bank, card, and payment processor activity is creating repeat work before the close can move forward.',
+      score: Math.min(99, 46 + values.selectedBottlenecks.filter((item) => item.toLowerCase().includes('reconciliation')).length * 18), tone: 'coral',
+    },
+    {
+      number: '02', label: 'AUTOMATION & INTEGRATION', title: 'Automation & integration',
+      detail: 'Manual uploads and spreadsheet manipulation are keeping the close dependent on individual operators.',
+      score: Math.min(99, 42 + ({ automated: 0, partial: 16, manual: 32, fragmented: 45 })[values.integration]), tone: 'amber',
+    },
+    {
+      number: '03', label: 'DATA QUALITY & ADJUSTMENTS', title: 'Data quality & adjustments',
+      detail: 'Late transactions and corrections are forcing the team to revisit work that should already be final.',
+      score: Math.min(99, 38 + ({ rarely: 0, occasionally: 18, frequently: 32, very: 45 })[values.corrections]), tone: 'amber',
+    },
+  ]
+  const priorities = [
+    ['RECONCILIATION', 'Find repeat reconciliation exceptions', 'Review the highest-volume accounts and isolate the patterns that keep every close open longer.'],
+    ['AUTOMATION & INTEGRATION', 'Map manual data movement', 'Document where files, spreadsheets, and system handoffs still rely on manual intervention.'],
+    ['DATA QUALITY & ADJUSTMENTS', 'Trace late entries to their source', 'Identify the upstream owners and timing gaps behind recurring late or corrected transactions.'],
+  ]
+
   return (
-    <div className="reference-results">
-      <p className="reference-eyebrow">YOUR CLOSE CAPACITY REPORT</p>
-      <h2>
-        The cost is visible.<br />
-        Now make it smaller.
-      </h2>
-      <p>
-        Based on your answers, excess close work is absorbing capacity that could be
-        redirected to better decisions.
-      </p>
+    <div className="report-page">
+      <section className="report-hero"><div className="report-hero-inner">
+        <div className="report-toolbar"><button type="button" onClick={onRestart}>← Edit answers</button><button type="button" onClick={() => window.print()}>Print / save report</button></div>
+        <p className="report-kicker">YOUR SLOW CLOSE SNAPSHOT</p><h2>Don't just close faster.<br />Find the work that shouldn't be there.</h2>
+        <p className="report-intro">Based on your estimates, this is the finance capacity associated with close duration beyond your target.</p>
+        <div className="loss-grid">{[['MONTHLY LOSS', report.monthlyLoss], ['QUARTERLY LOSS', report.quarterlyLoss], ['YEARLY LOSS', report.yearlyLoss]].map(([label, amount]) => <div className="loss-card" key={label}><span>{label}</span><strong>{formatMoney(amount, values.currency)}</strong><small>per period</small></div>)}</div>
+        <p className="report-footnote">One directional estimate based on your inputs. This is capacity tied up in excess close work, not guaranteed savings.</p>
+      </div></section>
 
-      <div className="reference-result-card">
-        <span>Estimated annual capacity tied to excess close</span>
-        <strong>{formatMoney(report.yearlyLoss, values.currency)}</strong>
-        <small>Illustrative estimate based on your inputs</small>
-
-        <div className="result-metrics">
-          <span>
-            Current close <b>{values.currentDays} days</b>
-          </span>
-          <span>
-            Target close <b>{values.targetDays} days</b>
-          </span>
-          <span>
-            Manual effort <b>{values.manualPercent}%</b>
-          </span>
-        </div>
-
-        <b>Focus areas</b>
-        <p>{values.selectedBottlenecks.join(' · ') || 'No bottlenecks selected yet.'}</p>
+      <div className="report-content">
+        <section className="health-panel"><div className="score-wrap"><div className="score-ring"><strong>{report.healthScore}</strong><span>/100</span></div><div><p className="report-kicker">YOUR CLOSE HEALTH SCORE</p><h3>Material friction is slowing the close</h3><p>There is a clear blend of manual effort, data movement, and rework behind your current close duration.</p></div></div><div className="health-bars">{rootCauses.map((cause) => <div key={cause.title}><span>{cause.title}</span><b>{cause.score}/100</b><i><em style={{ width: `${cause.score}%` }} /></i></div>)}</div></section>
+        <section className="stat-grid"><div><span>◷</span><small>CURRENT CLOSE</small><strong>{values.currentDays} days</strong><em>Target: {values.targetDays} days</em></div><div><span>◇</span><small>ANNUAL CLOSE LABOR</small><strong>{formatMoney(report.annualCloseLabor, values.currency)}</strong><em>Across your close team</em></div><div><span>↻</span><small>ANNUAL MANUAL EFFORT</small><strong>{Math.round(report.annualManualHours).toLocaleString()} hrs</strong><em>{values.manualPercent}% of close effort</em></div><div><span>⌁</span><small>DECISION LAG</small><strong>{report.decisionLag} days</strong><em>Capacity delayed by excess close</em></div></section>
+        <section className="compare-panel"><div><p className="report-kicker">CONTEXT, NOT A VERDICT</p><h3>How your close compares</h3><p>Your internal target is the most useful benchmark because complexity, industry, and reporting requirements differ.</p></div><div className="compare-bars"><div><span>Your close</span><b>{values.currentDays} days</b><i><em style={{ width: '86%' }} /></i></div><div><span>Close-industry median</span><b>{Math.max(6, values.targetDays + 3)} days</b><i><em className="orange" style={{ width: '64%' }} /></i></div><div><span>Your target</span><b>{values.targetDays} days</b><i><em className="green" style={{ width: '43%' }} /></i></div></div></section>
+        <section className="cause-section"><p className="report-kicker">ROOT-CAUSE SIGNALS</p><h3>What is most likely slowing your close</h3><p className="section-copy">These are not generic recommendations. Each signal combines the operating patterns you selected.</p><div className="cause-grid">{rootCauses.map((cause) => <article key={cause.title}><div className="cause-top"><small>{cause.number}</small><b className={cause.tone}>HIGH PRIORITY</b></div><p className="report-kicker">{cause.label}</p><h4>{cause.title}</h4><div className="cause-score"><span>Category score</span><strong>{cause.score}/100</strong></div><p>{cause.detail}</p><footer>RISK SIGNAL <i><em style={{ width: `${cause.score}%` }} /></i></footer></article>)}</div></section>
+        <section className="priority-panel"><p className="report-kicker">YOUR ACTION PLAN</p><h3>Three priorities for the next close</h3>{priorities.map(([label, title, detail], index) => <div className="priority-row" key={title}><span>{index + 1}</span><div><p className="report-kicker">{label}</p><h4>{title}</h4><p>{detail}</p><b>Goal: Reduce exceptions and reclaim capacity.</b></div></div>)}</section>
+        <section className="report-cta"><div><p className="report-kicker">NEED HELP FINDING THE ROOT CAUSE?</p><h3>Turn this snapshot into a close improvement plan.</h3><p>Amzur's NetSuite specialists can help trace reconciliation, integration, and process issues to their source.</p></div><a href="https://amzur.com/contact-us/">Schedule a NetSuite close diagnostic <b>→</b></a></section>
+        <div className="report-disclaimer"><b>About this estimate</b><span>This snapshot is directional and based on the inputs provided. It is not a promise of savings or a substitute for a detailed process review.</span></div>
       </div>
-
-      <button type="button" className="reference-next" onClick={onRestart}>
-        Run assessment again <b>↗</b>
-      </button>
     </div>
   )
 }
