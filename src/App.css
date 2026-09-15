@@ -59,7 +59,7 @@ img {
 
 .library-page {
   background: radial-gradient(circle at 15% 8%, #ebf6ff 0%, #f7faff 32%, #ffffff 70%, #edf3ff 100%);
-  padding: 0 32px;
+  padding: 0 20px;
 }
 
 .library-header {
@@ -67,7 +67,7 @@ img {
   align-items: center;
   justify-content: space-between;
   height: 72px;
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -100,13 +100,13 @@ img {
 }
 
 .library-body {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 54px;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 40px;
   align-items: center;
-  padding: 42px 0 92px;
+  padding: 36px 0 38px;
 }
 
 .library-intro {
@@ -285,9 +285,9 @@ img {
 
 .library-page footer,
 .reference-calculator footer {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 18px 0 30px;
+  padding: 12px 0 16px;
   display: flex;
   justify-content: space-between;
   color: #7c8ea7;
@@ -1094,6 +1094,30 @@ img {
 .report-cta a b { font-size: 15px; }
 .report-disclaimer { display: flex; gap: 18px; padding: 14px 4px 0; color: #71839a; font-size: 6px; line-height: 1.4; }
 .report-disclaimer b { flex: 0 0 auto; color: #263e5c; }
+
+/* Keep the report readable when it is viewed as a full-page snapshot. */
+.report-page .report-kicker { font-size: 12px; }
+.report-page .report-intro { font-size: 14px; }
+.report-page .loss-card span, .report-page .loss-card small { font-size: 11px; }
+.report-page .loss-card strong { font-size: 34px; }
+.report-page .report-footnote { font-size: 10px; }
+.report-page .score-wrap h3, .report-page .compare-panel h3, .report-page .cause-section > h3, .report-page .priority-panel > h3 { font-size: 26px; }
+.report-page .score-wrap > div:last-child > p:last-child, .report-page .compare-panel > div:first-child > p:last-child { font-size: 13px; }
+.report-page .health-bars span, .report-page .health-bars b, .report-page .compare-bars span, .report-page .compare-bars b { font-size: 11px; }
+.report-page .stat-grid small, .report-page .stat-grid em { font-size: 11px; }
+.report-page .stat-grid strong { font-size: 20px; }
+.report-page .section-copy { font-size: 13px; }
+.report-page .cause-top small { font-size: 11px; }
+.report-page .cause-top b { font-size: 8px; }
+.report-page .cause-grid .report-kicker { font-size: 10px; }
+.report-page .cause-grid h4, .report-page .priority-row h4 { font-size: 17px; }
+.report-page .cause-score, .report-page .cause-grid footer { font-size: 10px; }
+.report-page .cause-grid article > p:not(.report-kicker) { font-size: 12px; }
+.report-page .priority-row .report-kicker { font-size: 10px; }
+.report-page .priority-row p:not(.report-kicker), .report-page .priority-row b { font-size: 12px; }
+.report-page .report-cta h3 { font-size: 28px; }
+.report-page .report-cta p:last-child, .report-page .report-cta a { font-size: 13px; }
+.report-page .report-disclaimer { font-size: 10px; }
 
 @media (max-width: 700px) {
   .report-hero-inner, .report-content { width: min(100% - 28px, 980px); }
