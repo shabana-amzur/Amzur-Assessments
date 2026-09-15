@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 
 const bottlenecks = [
@@ -277,6 +277,12 @@ function ReferenceCalculator() {
   const bottleneckValid = values.selectedBottlenecks.length >= 1
 
   const report = useMemo(() => calculateAssessment(values), [values])
+
+  useEffect(() => {
+    if (step === 4) {
+      window.scrollTo(0, 0)
+    }
+  }, [step])
 
   const renderStepContent = () => {
     if (step === 1) {
