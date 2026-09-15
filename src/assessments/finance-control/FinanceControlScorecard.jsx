@@ -169,9 +169,27 @@ function QuestionMeta({ number, label, progress, path }) {
 
 function Results({ result, industry, email, setEmail, sent, setSent, onRestart }) {
   const [tierName, tierNote, tierClass] = result.tier
-  const submit = (event) => {
+  const [sending, setSending] = useState(false)
+  const [_error, setError] = useState('')
+  const submit = async (event) => {
     event.preventDefault()
-    if (email.trim()) setSent(true)
+    if (!email.trim() || sending) return
+    setSending(true)
+    setError('')
+    try {
+      const response = await fetch('/api/send-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, industry, score: result.overall, tier: tierName, dimensions: result.scores }),
+      })
+      const payload = await response.json()
+      if (!response.ok) throw new Error(payload.error || 'Unable to send the report.')
+      setSent(true)
+    } catch (submitError) {
+      setError(submitError.message)
+    } finally {
+      setSending(false)
+    }
   }
   return <section className="scorecard-results fade-in"><div className="result-heading"><div><p className="scorecard-eyebrow">YOUR {industry.toUpperCase()} FINANCE SCORECARD</p><h1>Your next finance priorities are clear.</h1></div><button className="retake-button" type="button" onClick={onRestart}>Reset <span>↻</span></button></div><div className="score-hero"><ScoreGauge score={result.overall} /><div><small>MATURITY LEVEL</small><h2 className={tierClass}>{tierName}</h2><p>{tierNote}</p></div></div>{result.overall < 65 && <div className="critical-callout"><strong>!</strong><div><b>1 critical control signal detected</b><p>These risks remain a priority even if stronger areas raise the overall score.</p></div></div>}<div className="dimension-grid">{Object.entries(dimensions).map(([key, dimension]) => <div className="dimension-card" key={key}><div><span>{dimension.short}</span><strong>{result.scores[key]}</strong></div><i><em style={{ width: `${result.scores[key]}%` }} /></i><small>{dimension.label}</small></div>)}</div><section className="result-section"><p className="section-kicker">WHAT YOUR ANSWERS INDICATE</p><h2>Priority findings - not generic advice</h2><div className="finding-list">{result.ranked.slice(0, 3).map((key, item) => <article key={key}><b>{item + 1}</b><div><strong>{dimensions[key].label} needs attention</strong><p>Start with ownership, exception visibility, and a controlled workflow for {industry.toLowerCase()} finance operations.</p></div></article>)}</div></section><section className="result-section"><p className="section-kicker">YOUR 30 / 60 / 90-DAY DIRECTION</p><h2>Sequence the improvement work</h2><div className="roadmap-grid">{result.ranked.slice(0, 3).map((key, item) => <article key={key}><small>{['30 DAYS', '60 DAYS', '90 DAYS'][item]}</small><h3>{dimensions[key].label}</h3><p>Document the process, automate recurring exceptions, and give leaders a visible scorecard for this dimension.</p></article>)}</div></section><section className="report-gate">{sent ? <p className="sent-state"><strong>Your report request is captured.</strong><span>The detailed report will be sent to {email}.</span></p> : <><strong>Get the detailed prioritized report</strong><p>Receive your dimension breakdown, control signals, and industry-specific improvement direction.</p><form onSubmit={submit}><input type="email" required value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Work email address" aria-label="Work email address" /><button className="scorecard-primary" type="submit">Email my report <span>&rarr;</span></button></form></>}</section><section className="scorecard-cta"><div><small>NEED A CLOSER LOOK?</small><h2>Turn the scorecard into a NetSuite finance improvement plan.</h2><p>Review the control gaps, process dependencies, and reporting opportunities behind your result with an Amzur NetSuite finance specialist.</p></div><a href="https://amzur.com/contact-us/">Request a finance diagnostic <span>&rarr;</span></a></section></section>
 }
