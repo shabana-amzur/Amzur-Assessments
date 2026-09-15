@@ -143,7 +143,7 @@ function FinanceControlScorecard() {
         {phase === 'intro' && <Intro onStart={() => setPhase('industry')} />}
         {phase === 'industry' && <IndustryPicker onBack={() => setPhase('intro')} onSelect={startIndustry} />}
         {phase === 'quiz' && <Quiz question={questions[index]} number={index + 2} total={16} value={answers[questions[index].id]} onBack={() => index === 0 ? setPhase('industry') : setIndex((current) => current - 1)} onAnswer={chooseAnswer} industry={industries[industry].label} />}
-        {phase === 'results' && result && <Results result={result} industry={industries[industry].label} email={email} setEmail={setEmail} sent={sent} setSent={setSent} onRestart={restart} />}
+        {phase === 'results' && result && <Results result={result} questions={questions} answers={answers} industry={industries[industry].label} email={email} setEmail={setEmail} sent={sent} setSent={setSent} onRestart={restart} />}
 
         <footer className="scorecard-footer"><span>Amzur Technologies</span><span>NetSuite implementation, optimization, integration, and managed support</span><a href="https://www.amzur.com" target="_blank" rel="noreferrer">www.amzur.com</a></footer>
       </div>
@@ -167,7 +167,7 @@ function QuestionMeta({ number, label, progress, path }) {
   return <div className="question-meta"><div><span>Question {number} of 16</span>{path && <b>{path} path</b>}</div><i><em style={{ width: `${progress}%` }} /></i><small>{label}</small></div>
 }
 
-function Results({ result, industry, email, setEmail, sent, setSent, onRestart }) {
+function Results({ result, questions, answers, industry, email, setEmail, sent, setSent, onRestart }) {
   const [tierName, tierNote, tierClass] = result.tier
   const [sending, setSending] = useState(false)
   const [error, setError] = useState('')
@@ -180,7 +180,7 @@ function Results({ result, industry, email, setEmail, sent, setSent, onRestart }
       const response = await fetch('/api/send-report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, industry, score: result.overall, tier: tierName, dimensions: result.scores, ranked: result.ranked }),
+        body: JSON.stringify({ email, industry, score: result.overall, tier: tierName, dimensions: result.scores, ranked: result.ranked, questions, answers }),
       })
       const responseText = await response.text()
       let payload = {}
