@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 RESEND_API_KEY=*
+RESEND_FROM_EMAIL=*
 
 # Editor directories and files
 .vscode/*

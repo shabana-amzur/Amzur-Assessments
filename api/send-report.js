@@ -10,10 +10,10 @@ export default async function handler(request, response) {
   }
 
   const apiKey = process.env.RESEND_API_KEY
-  const from = process.env.RESEND_FROM_EMAIL
   const notificationEmail = 'shabana.sheik@amzur.com'
-  if (!apiKey || !from) {
-    return response.status(500).json({ error: 'Email delivery is not configured.' })
+  const from = process.env.RESEND_FROM_EMAIL || 'Amzur Finance Scorecard <onboarding@resend.dev>'
+  if (!apiKey) {
+    return response.status(500).json({ error: 'Email delivery is not configured. Add RESEND_API_KEY in Vercel.' })
   }
 
   const dimensionRows = Object.entries(dimensions || {})
@@ -30,7 +30,8 @@ export default async function handler(request, response) {
     })
 
     if (!resendResponse.ok) {
-      return response.status(502).json({ error: 'Resend could not deliver the report.' })
+      const resendError = await resendResponse.json().catch(() => ({}))
+      return response.status(502).json({ error: resendError.message || resendError.name || 'Resend could not deliver the report.' })
     }
 
     return response.status(200).json({ sent: true })
