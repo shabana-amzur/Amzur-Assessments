@@ -147,118 +147,15 @@ function App() {
     return <FinanceControlScorecard />
   }
 
-  return <AssessmentHub />
+  return <AssessmentRedirect />
 }
 
-function AssessmentHub() {
-  return (
-    <main className="library-page">
-      <header className="library-header">
-        <a className="library-brand" href="/" aria-label="Amzur assessment library">
-          <img src="https://amzur.com/wp-content/uploads/2022/07/Amzur-logo-2022.png" alt="Amzur" />
-        </a>
-        <a className="contact-cta" href="https://amzur.com/contact-us/">
-          Contact us <b>→</b>
-        </a>
-      </header>
+function AssessmentRedirect() {
+  useEffect(() => {
+    window.location.replace('/slow-close-calculator')
+  }, [])
 
-      <section className="library-body">
-        <div className="library-intro">
-          <p className="eyebrow">AMZUR DECISION TOOLS</p>
-          <h1>
-            Assessments for sharper <i>operations.</i>
-          </h1>
-          <p>
-            A working library of diagnostic tools that turn finance data into clear,
-            defensible decisions.
-          </p>
-          <div className="library-strip">
-            <span>ASSESSMENT LIBRARY</span>
-            <span>2026 EDITION</span>
-          </div>
-        </div>
-
-        <div className="library-grid">
-          <a className="featured-assessment" href="/slow-close-calculator">
-            <div className="card-top">
-              <span>FEATURED</span>
-              <b>01 / 04</b>
-            </div>
-            <div className="featured-copy">
-              <h2>Slow Close Calculator</h2>
-              <p>
-                Map the month-end close against target dates and surface the exact steps
-                keeping you behind schedule.
-              </p>
-            </div>
-            <div className="card-meta">
-              <span>~12 min</span>
-              <span>3 modules</span>
-              <span>Close ops</span>
-            </div>
-            <span className="open-button">
-              Open assessment <b>→</b>
-            </span>
-          </a>
-
-          <div className="secondary-assessments">
-            <article>
-              <div className="card-top">
-                <span>03 / 04</span>
-                <b>Revenue</b>
-              </div>
-              <h3>Revenue Leakage Assessment</h3>
-              <p>
-                Trace margin loss across billing, dunning, and discounting to find what’s
-                quietly slipping away.
-              </p>
-              <div className="secondary-meta">
-                <span>~15 min · 4 modules</span>
-                <a href="/">Open →</a>
-              </div>
-            </article>
-
-            <article>
-              <div className="card-top">
-                <span>02 / 04</span>
-                <b>Control</b>
-              </div>
-              <h3>Finance Control &amp; Performance Scorecard</h3>
-              <p>
-                Score control, automation, performance, and decision readiness across your
-                industry-specific NetSuite finance operation.
-              </p>
-              <div className="secondary-meta">
-                <span>~7 min · 15 questions</span>
-                <a href="/finance-control-scorecard">Open →</a>
-              </div>
-            </article>
-
-            <article>
-              <div className="card-top">
-                <span>04 / 04</span>
-                <b>Planning</b>
-              </div>
-              <h3>Forecast Confidence Check</h3>
-              <p>
-                Score the inputs behind your projections and see where assumptions are
-                carrying too much risk.
-              </p>
-              <div className="secondary-meta">
-                <span>~10 min · 3 modules</span>
-                <a href="/">Open →</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        <span>© 2026 Amzur Technologies</span>
-        <span>Built for better finance decisions.</span>
-      </footer>
-    </main>
-  )
+  return null
 }
 
 function ReferenceCalculator() {
