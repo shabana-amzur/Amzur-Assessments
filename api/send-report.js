@@ -11,7 +11,10 @@ export default async function handler(request, response) {
 
   const apiKey = process.env.RESEND_API_KEY
   const assessmentName = 'Finance Control & Performance Scorecard'
-  const notificationEmail = process.env.RESEND_NOTIFICATION_EMAIL || 'shabana.sheik@amzur.com'
+  const notificationEmails = (process.env.RESEND_NOTIFICATION_EMAIL || 'shabana.sheik@amzur.com,social@amzur.com,ramakrishna.akula@amzur.com')
+    .split(',')
+    .map((recipient) => recipient.trim())
+    .filter(Boolean)
   const from = process.env.RESEND_FROM_EMAIL || 'Amzur Technologies <noreply@assessments.amzur.com>'
   if (!apiKey) {
     return response.status(500).json({ error: 'Email delivery is not configured. Add RESEND_API_KEY in Vercel.' })
@@ -61,7 +64,7 @@ export default async function handler(request, response) {
   try {
     const [userResponse, notificationResponse] = await Promise.all([
       sendEmail({ to: [email], subject: `Your ${assessmentName} results - ${industry}`, html: userHtml }),
-      sendEmail({ to: [notificationEmail], subject: 'New user submitted the NetSuite assessment', html: notificationHtml }),
+      sendEmail({ to: notificationEmails, subject: 'New user submitted the NetSuite assessment', html: notificationHtml }),
     ])
 
     if (!userResponse.ok || !notificationResponse.ok) {
