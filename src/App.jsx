@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
+import FinanceControlScorecard from './assessments/finance-control/FinanceControlScorecard'
 
 const bottlenecks = [
   'Bank & card reconciliation',
@@ -142,6 +143,10 @@ function App() {
     return <ReferenceCalculator />
   }
 
+  if (path === '/finance-control-scorecard') {
+    return <FinanceControlScorecard />
+  }
+
   return <AssessmentHub />
 }
 
@@ -177,7 +182,7 @@ function AssessmentHub() {
           <a className="featured-assessment" href="/slow-close-calculator">
             <div className="card-top">
               <span>FEATURED</span>
-              <b>01 / 03</b>
+              <b>01 / 04</b>
             </div>
             <div className="featured-copy">
               <h2>Slow Close Calculator</h2>
@@ -199,7 +204,7 @@ function AssessmentHub() {
           <div className="secondary-assessments">
             <article>
               <div className="card-top">
-                <span>02 / 03</span>
+                <span>03 / 04</span>
                 <b>Revenue</b>
               </div>
               <h3>Revenue Leakage Assessment</h3>
@@ -215,7 +220,23 @@ function AssessmentHub() {
 
             <article>
               <div className="card-top">
-                <span>03 / 03</span>
+                <span>02 / 04</span>
+                <b>Control</b>
+              </div>
+              <h3>Finance Control &amp; Performance Scorecard</h3>
+              <p>
+                Score control, automation, performance, and decision readiness across your
+                industry-specific NetSuite finance operation.
+              </p>
+              <div className="secondary-meta">
+                <span>~7 min · 15 questions</span>
+                <a href="/finance-control-scorecard">Open →</a>
+              </div>
+            </article>
+
+            <article>
+              <div className="card-top">
+                <span>04 / 04</span>
                 <b>Planning</b>
               </div>
               <h3>Forecast Confidence Check</h3>
