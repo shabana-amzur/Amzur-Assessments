@@ -180,7 +180,7 @@ function Results({ result, industry, email, setEmail, sent, setSent, onRestart }
       const response = await fetch('/api/send-report', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, industry, score: result.overall, tier: tierName, dimensions: result.scores }),
+        body: JSON.stringify({ email, industry, score: result.overall, tier: tierName, dimensions: result.scores, ranked: result.ranked }),
       })
       const responseText = await response.text()
       let payload = {}
