@@ -11,7 +11,7 @@ export default async function handler(request, response) {
 
   const apiKey = process.env.RESEND_API_KEY
   const notificationEmail = 'shabana.sheik@amzur.com'
-  const from = process.env.RESEND_FROM_EMAIL || 'Amzur Finance Scorecard <onboarding@resend.dev>'
+  const from = process.env.RESEND_FROM_EMAIL || 'Amzur Technologies <noreply@assessments.amzur.com>'
   if (!apiKey) {
     return response.status(500).json({ error: 'Email delivery is not configured. Add RESEND_API_KEY in Vercel.' })
   }
