@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import FinanceControlScorecard from './assessments/finance-control/FinanceControlScorecard'
+import NetSuiteHealthAssessment from './assessments/netsuite-health/NetSuiteHealthAssessment'
 
 const bottlenecks = [
   'Bank & card reconciliation',
@@ -147,12 +148,16 @@ function App() {
     return <FinanceControlScorecard />
   }
 
+  if (path === '/netsuite-health-assessment') {
+    return <NetSuiteHealthAssessment />
+  }
+
   return <AssessmentRedirect />
 }
 
 function AssessmentRedirect() {
   useEffect(() => {
-    window.location.replace('/slow-close-calculator')
+    window.location.replace('/netsuite-health-assessment')
   }, [])
 
   return null
