@@ -273,6 +273,7 @@ function NetSuiteHealthAssessment() {
   const [answers, setAnswers] = useState({})
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState('')
 
   const currentQuestion = questions[questionIndex]
   const answeredCount = Object.keys(answers).length
@@ -323,14 +324,44 @@ function NetSuiteHealthAssessment() {
     setSent(false)
   }
 
-  const submitAssessment = () => {
+  const submitAssessment = async () => {
     if (!email.trim()) return
-    pushGtmEvent('assessment_completed', {
-      assessment_name: 'netsuite_health_assessment',
-      score: result.overall,
-      email_present: true,
-    })
-    setSent(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/send-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          assessment: 'netsuite_health_assessment',
+          assessment_name: 'NetSuite Health Assessment',
+          industry: 'NetSuite',
+          score: result.overall,
+          tier: result.tier[0],
+          dimensions: result.scores,
+          ranked: result.ranked,
+          questions: questions.map((question) => ({
+            id: question.id,
+            topic: question.sectionTitle,
+            prompt: question.prompt,
+          })),
+          answers,
+        }),
+      })
+
+      const payload = await response.json().catch(() => ({}))
+      if (!response.ok) throw new Error(payload.error || 'Unable to send the assessment.')
+
+      pushGtmEvent('assessment_completed', {
+        assessment_name: 'netsuite_health_assessment',
+        score: result.overall,
+        email_present: true,
+      })
+      setSent(true)
+    } catch (submitError) {
+      setError(submitError.message)
+    }
   }
 
   return (
@@ -518,10 +549,11 @@ function NetSuiteHealthAssessment() {
                 Email address
                 <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@company.com" />
               </label>
-              <button type="button" className="net-health-button primary" onClick={submitAssessment} disabled={!email.trim()}>
+              <button type="button" className="net-health-button primary" onClick={submitAssessment} disabled={!email.trim() || sent}>
                 {sent ? 'Report sent' : 'Send my assessment'}
               </button>
-              {!sent && <small className="net-health-form-note">Questions are used to generate your diagnostic snapshot.</small>}
+              {error && <small className="net-health-form-note" style={{ color: '#f7b5c1' }}>{error}</small>}
+              {!sent && !error && <small className="net-health-form-note">Questions are used to generate your diagnostic snapshot.</small>}
               {sent && <small className="net-health-form-note">Your report has been queued for delivery.</small>}
             </div>
           </section>

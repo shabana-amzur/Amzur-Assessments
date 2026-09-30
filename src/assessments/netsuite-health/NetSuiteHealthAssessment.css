@@ -1,10 +1,11 @@
 .net-health-assessment {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top right, rgba(29, 138, 255, 0.18), transparent 30%),
-    linear-gradient(180deg, #071427 0%, #0d1f38 30%, #081a2d 100%);
-  color: #edf5ff;
-  font-family: Inter, "Segoe UI", sans-serif;
+    radial-gradient(circle at 100% 0, rgba(150, 61, 192, 0.20), transparent 30%),
+    linear-gradient(180deg, #090b27 0%, #1b1232 30%, #120d1f 100%);
+  color: #f3ebff;
+  font-family: 'Inter', "Segoe UI", sans-serif;
+  font-weight: 500;
 }
 
 .net-health-shell {
@@ -70,28 +71,29 @@
 
 .net-health-kicker {
   margin: 0 0 16px;
-  color: #5ec6eb;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  color: #963DC0;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .net-health-intro h1,
 .net-health-results h1,
 .net-health-question h2 {
   margin: 0;
+  font-weight: 500;
   letter-spacing: -0.05em;
 }
 
 .net-health-intro h1 {
   max-width: 720px;
-  font-size: clamp(38px, 6vw, 72px);
+  font-size: clamp(38px, 5vw, 50px);
   line-height: 0.96;
 }
 
 .net-health-intro h1 strong {
-  color: #69d5ff;
+  color: #963DC0;
 }
 
 .net-health-intro p {
@@ -357,7 +359,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #2bb7e9, #5f79f3, #a667e9);
+  background: linear-gradient(90deg, #3CC0FA, #963DC0, #C25EF2);
 }
 
 .net-health-roadmap {
@@ -371,7 +373,7 @@
   padding: 18px 16px;
   border: 1px solid rgba(156, 176, 214, 0.22);
   border-radius: 14px;
-  background: rgba(14, 28, 48, 0.8);
+  background: #440463;
 }
 
 .net-health-roadmap-item strong {
@@ -402,7 +404,7 @@
   border: 0;
   border-radius: 12px;
   padding: 15px 22px;
-  background: linear-gradient(90deg, #2bb7e9, #4d83ff 50%, #7d63ff);
+  background: linear-gradient(90deg, #3CC0FA, #963DC0 50%, #C25EF2);
   color: white;
   font-size: 15px;
   font-weight: 800;
@@ -533,7 +535,7 @@
 }
 
 .net-health-button.primary {
-  background: linear-gradient(90deg, #d35bf6 0%, #c34eff 40%, #b75eff 100%);
+  background: linear-gradient(90deg, #440463 0%, #963DC0 40%, #C25EF2 100%);
   color: white;
   box-shadow: 0 0 26px rgba(182, 93, 255, 0.38);
 }
@@ -584,7 +586,7 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background: conic-gradient(from -90deg, #38d0ff 0deg, #8b69ff var(--score), rgba(149, 168, 205, 0.2) var(--score), rgba(149, 168, 205, 0.2) 360deg);
+  background: conic-gradient(from -90deg, #3CC0FA 0deg, #963DC0 var(--score), rgba(149, 168, 205, 0.2) var(--score), rgba(149, 168, 205, 0.2) 360deg);
 }
 
 .net-health-ring::before {
@@ -668,7 +670,7 @@
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #4ac7ff, #7d63ff);
+  background: linear-gradient(90deg, #3CC0FA, #963DC0);
 }
 
 .net-health-dimension small {

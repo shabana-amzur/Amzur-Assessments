@@ -144,18 +144,21 @@ const assessmentCards = [
     summary: 'Measure operational health, control maturity, and process risk across your NetSuite footprint.',
     href: '/netsuite-health-assessment',
     cap: 'Diagnostic',
+    icon: '/netsuite_health_check.png',
   },
   {
     title: 'Finance Control Scorecard',
     summary: 'Benchmark your finance function against leading control, automation, and decision-readiness patterns.',
     href: '/finance-control-scorecard',
     cap: 'Scorecard',
+    icon: '/Finance_control_scorecard.png',
   },
   {
     title: 'Slow Close Calculator',
     summary: 'Estimate the labor and value impact of a slower close and identify where the bottlenecks sit.',
     href: '/slow-close-calculator',
     cap: 'Calculator',
+    icon: '/slow%20cose%20calculator.png',
   },
 ]
 
@@ -263,16 +266,14 @@ function HomeLanding() {
 
       <section id="assessment-section" className="assessment-section">
         <div className="section-title-row">
-          <span className="section-dot">•</span>
           <h2>Choose Your Assessment</h2>
-          <span className="section-dot">•</span>
         </div>
 
         <div className="assessment-card-grid">
           {assessmentCards.map((card, index) => (
             <a key={card.title} href={card.href} className="assessment-card assessment-card--gradient">
               <div className="assessment-step" aria-hidden="true">
-                {index === 0 ? '⏱' : index === 1 ? '✓' : '◔'}
+                <img src={card.icon} alt="" className="assessment-step-icon" />
               </div>
               <div className="assessment-header">
                 <h3>{card.title}</h3>
@@ -294,25 +295,60 @@ function HomeLanding() {
 
         <div className="benefits-grid">
           <article className="benefit-item">
-            <div className="benefit-icon">◌</div>
+            <div className="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11" cy="11" r="5.5" stroke="currentColor" strokeWidth="1.7" />
+                <path d="M15.5 15.5L20 20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M11 6.5V11L13.8 13.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
             <h3>Identify Gaps</h3>
             <p>Uncover process, financial, or system-level gaps that may be affecting your business.</p>
           </article>
 
           <article className="benefit-item">
-            <div className="benefit-icon">▤</div>
+            <div className="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 18.5H20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M7 15.5V11" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M12 15.5V7.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M17 15.5V4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M3.5 20.5L7 18L10.5 19.5L14 16L18 17.5L20.5 15.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
             <h3>Quantify Impact</h3>
             <p>Turn operational challenges into measurable business impact.</p>
           </article>
 
           <article className="benefit-item">
-            <div className="benefit-icon">◐</div>
+            <div className="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 14.5L10 18.5L18.5 6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M5 9.5H8.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M15.5 5.5H18.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <circle cx="5.5" cy="9.5" r="1.5" stroke="currentColor" strokeWidth="1.4" />
+                <circle cx="18.5" cy="5.5" r="1.5" stroke="currentColor" strokeWidth="1.4" />
+              </svg>
+            </div>
             <h3>Get Actionable Insights</h3>
             <p>Use your results to identify practical areas for improvement.</p>
           </article>
 
           <article className="benefit-item">
-            <div className="benefit-icon">◎</div>
+            <div className="benefit-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="7.2" stroke="currentColor" strokeWidth="1.7" />
+                <path d="M12 4.8V2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M12 21.5V19.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M19.2 12H21.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M2.5 12H4.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M16.5 7.5L18.3 5.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M5.7 18.3L7.5 16.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M7.5 7.5L5.7 5.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <path d="M18.3 18.3L16.5 16.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                <circle cx="12" cy="12" r="2.3" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </div>
             <h3>Make Informed Decisions</h3>
             <p>Get a clearer picture before investing time and resources in change.</p>
           </article>
@@ -320,7 +356,19 @@ function HomeLanding() {
       </section>
 
       <section className="cta-banner">
-        <div className="cta-badge">✦</div>
+        <div className="cta-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.8V7.4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <path d="M12 16.6V21.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <path d="M4.1 12H8.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <path d="M15.3 12H19.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <path d="M6.1 6.1L8.8 8.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <path d="M15.2 15.2L17.9 17.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <path d="M17.9 6.1L15.2 8.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <path d="M8.8 15.2L6.1 17.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+            <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.3" />
+          </svg>
+        </div>
         <div className="cta-copy">
           <h3>We&apos;re here to help you succeed.</h3>
           <p>Need help choosing the right assessment? Contact our experts today.</p>
@@ -701,6 +749,54 @@ function ReferenceFrame({ eyebrow, title, description, children }) {
 }
 
 function ReferenceResults({ report, values, onRestart }) {
+  const [email, setEmail] = useState('')
+  const [sent, setSent] = useState(false)
+  const [error, setError] = useState('')
+
+  const submitReport = async (event) => {
+    event.preventDefault()
+    if (!email.trim()) return
+    setError('')
+
+    try {
+      const response = await fetch('/api/send-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          assessment: 'slow_close_calculator',
+          assessment_name: 'Slow Close Calculator',
+          industry: 'Slow Close',
+          score: report.healthScore,
+          tier: 'Close health score',
+          dimensions: {
+            Reconciliation: Math.min(99, 46 + values.selectedBottlenecks.filter((item) => item.toLowerCase().includes('reconciliation')).length * 18),
+            'Automation & integration': Math.min(99, 42 + ({ automated: 0, partial: 16, manual: 32, fragmented: 45 })[values.integration]),
+            'Data quality & adjustments': Math.min(99, 38 + ({ rarely: 0, occasionally: 18, frequently: 32, very: 45 })[values.corrections]),
+          },
+          ranked: ['Reconciliation', 'Automation & integration', 'Data quality & adjustments'],
+          questions: [
+            { id: 'close_days', prompt: 'Current monthly close duration' },
+            { id: 'manual_effort', prompt: 'Manual effort share' },
+            { id: 'bottlenecks', prompt: 'Selected bottlenecks' },
+          ],
+          answers: {
+            close_days: `${values.currentDays} days`,
+            manual_effort: `${values.manualPercent}%`,
+            bottlenecks: values.selectedBottlenecks.join(', '),
+          },
+        }),
+      })
+
+      const payload = await response.json().catch(() => ({}))
+      if (!response.ok) throw new Error(payload.error || 'Unable to send the report.')
+
+      setSent(true)
+    } catch (submitError) {
+      setError(submitError.message)
+    }
+  }
+
   const rootCauses = [
     {
       number: '01', label: 'RECONCILIATION', title: 'Reconciliation',
@@ -741,6 +837,24 @@ function ReferenceResults({ report, values, onRestart }) {
         <section className="cause-section"><p className="report-kicker">ROOT-CAUSE SIGNALS</p><h3>What is most likely slowing your close</h3><p className="section-copy">These are not generic recommendations. Each signal combines the operating patterns you selected.</p><div className="cause-grid">{rootCauses.map((cause) => <article key={cause.title}><div className="cause-top"><small>{cause.number}</small><b className={cause.tone}>HIGH PRIORITY</b></div><p className="report-kicker">{cause.label}</p><h4>{cause.title}</h4><div className="cause-score"><span>Category score</span><strong>{cause.score}/100</strong></div><p>{cause.detail}</p><footer>RISK SIGNAL <i><em style={{ width: `${cause.score}%` }} /></i></footer></article>)}</div></section>
         <section className="priority-panel"><p className="report-kicker">YOUR ACTION PLAN</p><h3>Three priorities for the next close</h3>{priorities.map(([label, title, detail], index) => <div className="priority-row" key={title}><span>{index + 1}</span><div><p className="report-kicker">{label}</p><h4>{title}</h4><p>{detail}</p><b>Goal: Reduce exceptions and reclaim capacity.</b></div></div>)}</section>
         <section className="report-cta"><div><p className="report-kicker">NEED HELP FINDING THE ROOT CAUSE?</p><h3>Turn this snapshot into a close improvement plan.</h3><p>Amzur's NetSuite specialists can help trace reconciliation, integration, and process issues to their source.</p></div><a href="https://amzur.com/contact-us/">Schedule a NetSuite close diagnostic <b>→</b></a></section>
+        <section className="report-email-panel" style={{ marginTop: '24px', padding: '20px 22px', border: '1px solid rgba(136, 150, 181, 0.35)', borderRadius: '16px', background: 'rgba(255,255,255,0.04)' }}>
+          <p className="report-kicker">EMAIL THIS REPORT</p>
+          <form onSubmit={submitReport} style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '12px' }}>
+            <input
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="Work email address"
+              aria-label="Work email address"
+              style={{ flex: '1 1 240px', minHeight: '46px', borderRadius: '12px', border: '1px solid rgba(136, 150, 181, 0.5)', background: 'rgba(10, 12, 25, 0.3)', color: '#eef2ff', padding: '0 14px' }}
+            />
+            <button type="submit" disabled={!email.trim() || sent} style={{ minHeight: '46px', borderRadius: '12px', border: 'none', background: 'linear-gradient(90deg, #3CC0FA, #963DC0)', color: '#fff', fontWeight: 700, padding: '0 18px', cursor: 'pointer' }}>
+              {sent ? 'Report sent' : 'Send my report'}
+            </button>
+          </form>
+          {error && <p style={{ marginTop: '10px', color: '#f8c7d2' }}>{error}</p>}
+          {sent && !error && <p style={{ marginTop: '10px', color: '#d3f9e5' }}>Your report has been queued for delivery.</p>}
+        </section>
         <div className="report-disclaimer"><b>About this estimate</b><span>This snapshot is directional and based on the inputs provided. It is not a promise of savings or a substitute for a detailed process review.</span></div>
       </div>
     </div>

@@ -4,13 +4,33 @@ export default async function handler(request, response) {
     return response.status(405).json({ error: 'Method not allowed' })
   }
 
-  const { email, industry, score, tier, dimensions, ranked = Object.keys(dimensions || {}), questions = [], answers = {} } = request.body || {}
+  const {
+    email,
+    industry,
+    assessment,
+    assessment_name,
+    assessmentName,
+    score,
+    tier,
+    dimensions,
+    ranked = Object.keys(dimensions || {}),
+    questions = [],
+    answers = {},
+  } = request.body || {}
+
   if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
     return response.status(400).json({ error: 'A valid email address is required.' })
   }
 
   const apiKey = process.env.RESEND_API_KEY
-  const assessmentName = 'Finance Control & Performance Scorecard'
+  const effectiveAssessmentName = assessment_name || assessmentName || assessment || 'Assessment'
+  const assessmentNameMap = {
+    finance_control_scorecard: 'Finance Control & Performance Scorecard',
+    netsuite_health_assessment: 'NetSuite Health Assessment',
+    slow_close_calculator: 'Slow Close Calculator',
+  }
+  const assessmentName = assessmentNameMap[assessment] || effectiveAssessmentName || 'Assessment'
+  const effectiveIndustry = industry || (assessment === 'netsuite_health_assessment' ? 'NetSuite' : assessment === 'slow_close_calculator' ? 'Slow Close' : 'General business')
   const notificationEmails = (process.env.RESEND_NOTIFICATION_EMAIL || 'shabana.sheik@amzur.com,social@amzur.com,ramakrishna.akula@amzur.com')
     .split(',')
     .map((recipient) => recipient.trim())
@@ -63,8 +83,8 @@ export default async function handler(request, response) {
 
   try {
     const [userResponse, notificationResponse] = await Promise.all([
-      sendEmail({ to: [email], subject: `Your ${assessmentName} results - ${industry}`, html: userHtml }),
-      sendEmail({ to: notificationEmails, subject: 'New user submitted the NetSuite assessment', html: notificationHtml }),
+      sendEmail({ to: [email], subject: `Your ${assessmentName} results - ${effectiveIndustry}`, html: userHtml }),
+      sendEmail({ to: notificationEmails, subject: `New user submitted the ${assessmentName}`, html: notificationHtml }),
     ])
 
     if (!userResponse.ok || !notificationResponse.ok) {
