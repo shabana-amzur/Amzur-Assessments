@@ -139,6 +139,9 @@ img {
   min-height: 430px;
   padding-top: 48px;
   padding-bottom: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)), url('/Amzur_assements_banner.webp');
   background-size: cover;
   background-position: center;
@@ -162,9 +165,9 @@ img {
   z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 28px;
-  max-width: 1400px;
+  width: min(1400px, calc(100% - 48px));
   min-height: 430px;
   margin: 0 auto;
   padding: 60px 24px 60px;
@@ -173,9 +176,14 @@ img {
 .hero-copy {
   position: relative;
   z-index: 1;
-  flex: 0 0 90%;
-  max-width: 90%;
+  flex: 0 0 60%;
+  max-width: 60%;
+  margin: 0 auto;
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .kicker {
@@ -201,12 +209,14 @@ img {
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   line-height: 1.6;
+  text-align: center;
 }
 
 .cta-button {
   margin-top: 28px;
   padding: 18px 28px;
   font-size: 17px;
+  align-self: center;
 }
 
 .hero-visual {
@@ -591,16 +601,19 @@ img {
 
   .hero-copy {
     padding-left: 0;
+    align-items: center;
   }
 
   .hero-subtext {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
 
   .cta-button {
     margin-left: auto;
     margin-right: auto;
+    align-self: center;
   }
 
   .hero-visual {
