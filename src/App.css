@@ -396,6 +396,13 @@ img {
   color: #ffffff;
   text-decoration: none;
   box-shadow: 0 18px 30px rgba(90, 67, 140, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.assessment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 34px rgba(90, 67, 140, 0.22);
+  filter: brightness(1.05);
 }
 
 .assessment-card:nth-child(2) {
@@ -423,9 +430,9 @@ img {
 
 .assessment-card h3 {
   margin: 0;
-  font-size: clamp(23px, 2.1vw, 37px);
-  line-height: 1;
-  letter-spacing: -0.06em;
+  font-size: 25px;
+  line-height: 1.2;
+  letter-spacing: 0;
   font-weight: 400;
 }
 

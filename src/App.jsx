@@ -269,10 +269,11 @@ function HomeLanding() {
         <div className="assessment-card-grid">
           {assessmentCards.map((card, index) => (
             <a key={card.title} href={card.href} className="assessment-card assessment-card--gradient">
-              <div className="assessment-step">0{index + 1}</div>
+              <div className="assessment-step" aria-hidden="true">
+                {index === 0 ? '⏱' : index === 1 ? '✓' : '◔'}
+              </div>
               <div className="assessment-header">
                 <h3>{card.title}</h3>
-                <span className="card-icon">{index === 0 ? '⏱' : index === 1 ? '✓' : '◔'}</span>
               </div>
               <p>{card.summary}</p>
               <span className="assessment-link">{index === 0 ? 'Calculate Now' : index === 1 ? 'Take the Scorecard' : 'Start Assessment'} →</span>
