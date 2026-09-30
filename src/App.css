@@ -131,7 +131,10 @@ img {
   position: relative;
   width: 100%;
   min-height: 430px;
-  background: linear-gradient(90deg, rgba(188, 166, 230, 0.2), rgba(255,255,255,0.08));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)), url('/Amzur_assements_banner.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-top: 1px solid rgba(86, 71, 111, 0.18);
   border-bottom: 1px solid rgba(86, 71, 111, 0.18);
   overflow: hidden;
@@ -141,7 +144,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 100% 20%, rgba(146, 90, 220, 0.18), transparent 24%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.24));
   pointer-events: none;
 }
 
@@ -168,7 +171,7 @@ img {
 
 .kicker {
   margin: 0 0 18px;
-  color: #7b6bf0;
+  color: rgba(255, 255, 255, 0.82);
   font-size: 14px;
   letter-spacing: 0.14em;
   font-weight: 700;
@@ -176,7 +179,7 @@ img {
 
 .hero-copy h1 {
   margin: 0;
-  color: #3a2460;
+  color: #ffffff;
   font-size: 60px;
   line-height: 0.96;
   letter-spacing: -0.06em;
@@ -186,7 +189,7 @@ img {
 .hero-subtext {
   margin-top: 18px;
   max-width: 560px;
-  color: rgba(43, 39, 47, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   line-height: 1.6;
 }
@@ -215,11 +218,11 @@ img {
   max-width: 580px;
   padding: 12px 12px 0;
   min-height: 430px;
-  background: rgba(255, 255, 255, 0.56);
-  border: 1px solid rgba(124, 98, 162, 0.16);
-  border-radius: 28px;
-  box-shadow: 0 20px 40px rgba(72, 43, 94, 0.08);
-  backdrop-filter: blur(6px);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .chart-card {
@@ -336,7 +339,7 @@ img {
 
 .side-panel {
   display: flex;
-  align-items: flex-end;
+  align-items: stretch;
   justify-content: flex-end;
   min-width: 0;
   width: 190px;
@@ -345,11 +348,15 @@ img {
 
 .mini-card {
   width: 190px;
+  min-height: 100%;
   padding: 18px 16px 12px;
   border-radius: 18px;
   background: linear-gradient(180deg, #a55be5, #7b42cf);
   color: #ffffff;
   box-shadow: 0 16px 28px rgba(118, 66, 202, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .mini-card h3 {
