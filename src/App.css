@@ -62,17 +62,17 @@ img {
 .landing-page {
   background: #f4f1f7;
   color: #1c1c1c;
-  padding: 0 0 30px;
+  padding: 0 32px 30px;
 }
 
 .landing-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1440px;
-  margin: 0;
+  max-width: 1920px;
+  margin: 0 auto;
   min-height: 100px;
-  padding: 8px 30px 0;
+  padding-top: 8px;
 }
 
 .brand-block {
@@ -114,10 +114,10 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  width: 100%;
+  max-width: 1920px;
   min-height: 560px;
-  margin: 0;
-  padding: 18px 30px 28px;
+  margin: 0 auto;
+  padding: 18px 0 28px;
   background: linear-gradient(90deg, rgba(188, 166, 230, 0.2), rgba(255,255,255,0.08));
   border-top: 1px solid rgba(86, 71, 111, 0.18);
   border-bottom: 1px solid rgba(86, 71, 111, 0.18);
@@ -135,8 +135,8 @@ img {
 .hero-copy {
   position: relative;
   z-index: 1;
-  flex: 0 0 50%;
-  max-width: 50%;
+  flex: 0 0 44%;
+  max-width: 44%;
   padding-left: 10px;
 }
 
@@ -176,7 +176,7 @@ img {
   z-index: 1;
   display: flex;
   justify-content: flex-end;
-  flex: 0 0 50%;
+  flex: 0 0 56%;
   min-width: 0;
   padding-right: 48px;
 }
@@ -184,9 +184,9 @@ img {
 .metrics-card {
   display: flex;
   align-items: stretch;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
-  max-width: 700px;
+  max-width: 580px;
   padding: 12px 12px 0;
   min-height: 430px;
   background: rgba(255, 255, 255, 0.56);
@@ -351,8 +351,8 @@ img {
 }
 
 .assessment-section {
-  max-width: 1440px;
-  margin: 30px 0 0;
+  max-width: 1920px;
+  margin: 30px auto 0;
   padding: 36px 30px 32px;
 }
 
@@ -460,8 +460,8 @@ img {
 }
 
 .benefits-section {
-  max-width: 1440px;
-  margin: 42px 0 0;
+  max-width: 1920px;
+  margin: 42px auto 0;
   padding: 38px 30px 34px;
   display: flex;
   flex-direction: column;
@@ -537,7 +537,7 @@ img {
 
 .cta-banner {
   position: relative;
-  max-width: 1440px;
+  max-width: 1920px;
   margin: 52px auto 0;
   padding: 32px 40px;
   display: flex;
@@ -602,7 +602,7 @@ img {
 }
 
 .site-footer {
-  max-width: 1440px;
+  max-width: 1920px;
   margin: 0 auto;
   padding: 18px 0 28px;
   color: rgba(51, 43, 58, 0.72);
