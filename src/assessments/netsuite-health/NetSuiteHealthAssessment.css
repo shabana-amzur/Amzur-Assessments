@@ -3,8 +3,8 @@
   flex-direction: column;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 100% 0, rgba(150, 61, 192, 0.20), transparent 30%),
-    linear-gradient(180deg, #090b27 0%, #1b1232 30%, #120d1f 100%);
+    radial-gradient(circle at 100% 0, #963dc033, #0000 30%),
+    linear-gradient(#6c057e 0%, #37043a 30%, #3f1952 100%);
   color: #f3ebff;
   font-family: 'Inter', "Segoe UI", sans-serif;
   font-weight: 500;
@@ -71,14 +71,15 @@
 }
 
 .net-health-intro {
-  padding-top: 52px;
-  padding-bottom: 16px;
+  padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 .net-health-kicker {
-  margin: 0 0 16px;
+  margin: 0 0 22px;
+  padding-bottom: 6px;
   color: #963DC0;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
@@ -376,32 +377,32 @@
 }
 
 .net-health-roadmap-item {
-  padding: 18px 16px;
+  padding: 20px 18px;
   border: 1px solid rgba(156, 176, 214, 0.22);
-  border-radius: 14px;
+  border-radius: 16px;
   background: #440463;
 }
 
 .net-health-roadmap-item strong {
   display: block;
   color: #8bdcff;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.12em;
 }
 
 .net-health-roadmap-item b {
   display: block;
-  margin-top: 10px;
-  font-size: 15px;
+  margin-top: 12px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.3;
 }
 
 .net-health-roadmap-item span {
   display: block;
-  margin-top: 8px;
+  margin-top: 10px;
   color: rgba(223, 234, 245, 0.7);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.45;
 }
 
