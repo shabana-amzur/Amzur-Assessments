@@ -60,21 +60,21 @@ img {
 }
 
 .landing-page {
-  max-width: 1600px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   background: #ffffff;
   color: #1c1c1c;
-  padding: 0 32px 30px;
+  padding: 0 0 30px;
 }
 
 .landing-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   min-height: 100px;
-  padding-top: 8px;
+  padding: 8px 24px 0;
 }
 
 .brand-block {
@@ -112,16 +112,8 @@ img {
 
 .hero-shell {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  width: 100vw;
-  max-width: none;
+  width: 100%;
   min-height: 560px;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 18px 32px 28px;
   background: linear-gradient(90deg, rgba(188, 166, 230, 0.2), rgba(255,255,255,0.08));
   border-top: 1px solid rgba(86, 71, 111, 0.18);
   border-bottom: 1px solid rgba(86, 71, 111, 0.18);
@@ -136,12 +128,25 @@ img {
   pointer-events: none;
 }
 
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 1400px;
+  min-height: 560px;
+  margin: 0 auto;
+  padding: 18px 24px 28px;
+}
+
 .hero-copy {
   position: relative;
   z-index: 1;
   flex: 0 0 44%;
   max-width: 44%;
-  padding-left: 10px;
+  padding-left: 0;
 }
 
 .kicker {
