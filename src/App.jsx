@@ -200,47 +200,27 @@ function HomeLanding() {
         </a>
       </header>
 
-      <section className="library-body">
-        <div className="library-intro">
-          <p className="eyebrow">AMZUR ASSESSMENTS</p>
+      <section className="hero-banner">
+        <div className="hero-copy">
+          <p className="eyebrow">HOME » DIGITAL</p>
           <h1>
-            Diagnose where <i>your</i> business is losing momentum.
+            Seamless Digital<br />
+            Solutions for Modern<br />
+            Businesses
           </h1>
-          <p>
-            Use practical, business-focused assessments to uncover process gaps, control risk, and operational drag before they become expensive problems.
+          <p className="hero-subtext">
+            Driving your business forward with tailored solutions that empower, innovate, and transcend the ordinary.
           </p>
-
-          <div className="library-strip">
-            <span>NETSUITE</span>
-            <span>FINANCE</span>
-            <span>OPERATIONS</span>
-          </div>
         </div>
 
-        <div className="library-grid">
-          <article className="featured-assessment">
-            <div className="card-top">
-              <span>FEATURED</span>
-              <b>DIAGNOSTIC</b>
-            </div>
-
-            <div className="featured-copy">
-              <h2>NetSuite Health Assessment</h2>
-              <p>
-                Evaluate where your NetSuite environment is creating efficiency risk, visibility gaps, or control friction across core processes.
-              </p>
-            </div>
-
-            <div className="card-meta">
-              <span>5–7 minutes</span>
-              <span>Business-led</span>
-              <span>Risk-based</span>
-            </div>
-
-            <a className="open-button" href="/netsuite-health-assessment">
-              Start the assessment <b>→</b>
-            </a>
-          </article>
+        <div className="hero-visual" aria-hidden="true">
+          <div className="visual-shell">
+            <div className="visual-orb orb-one" />
+            <div className="visual-orb orb-two" />
+            <div className="visual-card visual-card-left" />
+            <div className="visual-card visual-card-right" />
+            <div className="visual-bar" />
+          </div>
         </div>
       </section>
 

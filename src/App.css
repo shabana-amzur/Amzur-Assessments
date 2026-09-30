@@ -1,15 +1,15 @@
 :root {
-  --navy: #0d2548;
-  --navy-strong: #091d38;
-  --blue: #1769e8;
-  --blue-soft: #eaf3ff;
-  --ink: #132d52;
-  --muted: #697d94;
-  --line: #e2eaf3;
-  --wash: #f4f8ff;
-  --purple: #7d3fd3;
-  --green: #1c9a77;
-  --shadow: 0 20px 45px rgba(16, 36, 74, 0.12);
+  --brand-deep: #440463;
+  --brand-purple: #963DC0;
+  --brand-violet: #C25EF2;
+  --brand-lilac: #CF82F5;
+  --brand-sky: #3CC0FA;
+  --brand-ink: #1b1b1b;
+  --brand-soft: #f7f3fa;
+  --brand-line: rgba(68, 4, 99, 0.18);
+  --brand-muted: #4d4d4d;
+  --brand-card: rgba(255, 255, 255, 0.9);
+  --shadow: 0 18px 32px rgba(68, 4, 99, 0.14);
 }
 
 * {
@@ -25,7 +25,7 @@ body {
   min-width: 320px;
   font-family: Inter, Arial, sans-serif;
   background: #ffffff;
-  color: var(--ink);
+  color: var(--brand-deep);
 }
 
 button,
@@ -58,7 +58,7 @@ img {
 }
 
 .library-page {
-  background: radial-gradient(circle at 15% 8%, #ebf6ff 0%, #f7faff 32%, #ffffff 70%, #edf3ff 100%);
+  background: radial-gradient(circle at 15% 8%, rgba(194, 94, 242, 0.12) 0%, rgba(255, 255, 255, 0.96) 28%, #ffffff 70%, rgba(60, 192, 250, 0.08) 100%);
   padding: 0 20px;
 }
 
@@ -86,74 +86,140 @@ img {
   align-items: center;
   gap: 8px;
   padding: 9px 16px;
-  border: 1px solid rgba(109, 89, 120, 0.18);
+  border: 1px solid var(--brand-line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  color: #43165d;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--brand-deep);
   font-size: 12px;
   font-weight: 700;
 }
 
 .contact-cta b {
-  color: var(--purple);
+  color: var(--brand-violet);
   font-size: 18px;
 }
 
-.library-body {
-  max-width: 1440px;
-  margin: 0 auto;
+.hero-banner {
   display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
-  gap: 40px;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
-  padding: 36px 0 38px;
+  gap: 28px;
+  max-width: 1440px;
+  min-height: 620px;
+  margin: 0 auto;
+  padding: 34px 24px 26px;
 }
 
-.library-intro {
-  max-width: 460px;
+.hero-copy {
+  max-width: 620px;
+  padding-left: 8px;
 }
 
-.eyebrow {
+.hero-copy .eyebrow {
   margin: 0 0 18px;
-  color: var(--blue);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.8px;
+  color: var(--brand-purple);
+  font-size: 12px;
+  letter-spacing: 0.12em;
 }
 
-.library-intro h1 {
-  margin: 0 0 18px;
-  color: var(--navy);
-  font-size: clamp(42px, 6vw, 72px);
-  line-height: 0.96;
-  letter-spacing: -0.08em;
-  font-weight: 700;
-}
-
-.library-intro h1 i {
-  color: var(--blue);
-  font-style: normal;
-}
-
-.library-intro > p:last-of-type {
-  max-width: 360px;
+.hero-copy h1 {
   margin: 0;
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.55;
+  color: var(--brand-deep);
+  font-size: clamp(58px, 6vw, 116px);
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+  font-weight: 800;
 }
 
-.library-strip {
+.hero-subtext {
+  margin-top: 28px;
+  max-width: 620px;
+  color: var(--brand-muted);
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+}
+
+.hero-visual {
   display: flex;
-  justify-content: space-between;
-  max-width: 370px;
-  margin-top: 46px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  color: #8292a7;
-  font-size: 9px;
-  letter-spacing: 1.2px;
-  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  min-height: 460px;
+}
+
+.visual-shell {
+  position: relative;
+  width: min(100%, 660px);
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  background: linear-gradient(90deg, rgba(68, 4, 99, 0.92) 0%, rgba(194, 94, 242, 0.9) 100%);
+  overflow: hidden;
+}
+
+.visual-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.9) 0%, rgba(68, 4, 99, 0.22) 38%, rgba(194, 94, 242, 0.4) 100%);
+}
+
+.visual-orb {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  opacity: 0.95;
+}
+
+.orb-one {
+  width: 120px;
+  height: 120px;
+  left: 15%;
+  bottom: 12%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 14px rgba(255, 255, 255, 0.12);
+}
+
+.orb-two {
+  width: 200px;
+  height: 200px;
+  right: 8%;
+  bottom: 6%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.visual-card {
+  position: absolute;
+  width: 240px;
+  height: 260px;
+  border-radius: 42% 42% 44% 44%;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.visual-card-left {
+  left: 8%;
+  top: 18%;
+  transform: rotate(-12deg);
+}
+
+.visual-card-right {
+  right: 8%;
+  top: 18%;
+  transform: rotate(12deg);
+}
+
+.visual-bar {
+  position: absolute;
+  width: 300px;
+  height: 140px;
+  border-radius: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(-16deg);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .library-grid {
@@ -169,9 +235,9 @@ img {
   min-height: 316px;
   padding: 24px 24px 20px;
   border-radius: 18px;
-  background: linear-gradient(160deg, #1769e8 0%, #10284a 68%);
+  background: linear-gradient(160deg, var(--brand-purple) 0%, var(--brand-deep) 68%);
   color: #ffffff;
-  box-shadow: 0 24px 32px rgba(16, 40, 74, 0.25);
+  box-shadow: var(--shadow);
 }
 
 .card-top {
@@ -237,7 +303,7 @@ img {
 
 .open-button b {
   margin-left: 10px;
-  color: var(--blue);
+  color: var(--brand-deep);
   font-size: 18px;
 }
 
@@ -288,8 +354,8 @@ img {
   align-items: center;
   padding: 6px 10px;
   border-radius: 999px;
-  background: #edf4ff;
-  color: var(--blue);
+  background: rgba(194, 94, 242, 0.12);
+  color: var(--brand-purple);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -326,11 +392,11 @@ img {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--brand-line);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--brand-card);
   padding: 22px 20px;
-  box-shadow: 0 10px 24px rgba(15, 38, 72, 0.04);
+  box-shadow: 0 10px 20px rgba(68, 4, 99, 0.04);
 }
 
 .assessment-card h3 {
@@ -350,7 +416,7 @@ img {
 
 .assessment-card a {
   margin-top: auto;
-  color: var(--blue);
+  color: var(--brand-violet);
   font-weight: 700;
 }
 
@@ -358,8 +424,8 @@ img {
   max-width: 1440px;
   margin: 0 auto;
   padding: 18px 0 28px;
-  border-top: 1px solid var(--line);
-  color: #7c8ea7;
+  border-top: 1px solid var(--brand-line);
+  color: var(--brand-deep);
   font-size: 13px;
   text-align: center;
 }
