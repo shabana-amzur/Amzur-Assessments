@@ -60,6 +60,8 @@ img {
 }
 
 .landing-page {
+  max-width: 1600px;
+  margin: 0 auto;
   background: #f4f1f7;
   color: #1c1c1c;
   padding: 0 32px 30px;
@@ -69,7 +71,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1920px;
+  max-width: 1600px;
   margin: 0 auto;
   min-height: 100px;
   padding-top: 8px;
@@ -114,7 +116,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  max-width: 1920px;
+  max-width: 1600px;
   min-height: 560px;
   margin: 0 auto;
   padding: 18px 0 28px;
@@ -351,7 +353,7 @@ img {
 }
 
 .assessment-section {
-  max-width: 1920px;
+  max-width: 1600px;
   margin: 30px auto 0;
   padding: 36px 30px 32px;
 }
@@ -460,7 +462,7 @@ img {
 }
 
 .benefits-section {
-  max-width: 1920px;
+  max-width: 1600px;
   margin: 42px auto 0;
   padding: 38px 30px 34px;
   display: flex;
@@ -537,7 +539,7 @@ img {
 
 .cta-banner {
   position: relative;
-  max-width: 1920px;
+  max-width: 1600px;
   margin: 52px auto 0;
   padding: 32px 40px;
   display: flex;
@@ -602,7 +604,7 @@ img {
 }
 
 .site-footer {
-  max-width: 1920px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 18px 0 28px;
   color: rgba(51, 43, 58, 0.72);
