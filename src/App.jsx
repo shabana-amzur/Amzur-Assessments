@@ -241,20 +241,6 @@ function HomeLanding() {
               Start the assessment <b>→</b>
             </a>
           </article>
-
-          <div className="secondary-assessments">
-            {assessmentCards.slice(1).map((card) => (
-              <article key={card.title}>
-                <span className="assessment-chip">{card.cap}</span>
-                <h3>{card.title}</h3>
-                <p>{card.summary}</p>
-                <div className="secondary-meta">
-                  <span>{card.cap}</span>
-                  <a href={card.href}>Open →</a>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
