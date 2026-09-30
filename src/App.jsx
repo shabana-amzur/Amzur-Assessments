@@ -223,11 +223,7 @@ function HomeLanding() {
           <div className="hero-inner">
             <div className="hero-copy">
               <p className="kicker">BUSINESS ASSESSMENTS &amp; CALCULATORS</p>
-              <h1>
-                Assess. Identify.
-                <br />
-                Improve.
-              </h1>
+              <h1>Assess. Identify. Improve.</h1>
               <p className="hero-subtext">
                 Explore interactive assessments and calculators designed to help you identify gaps, quantify impact,
                 and uncover opportunities for improvement.

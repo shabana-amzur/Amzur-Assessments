@@ -92,7 +92,7 @@ img {
   max-width: 1400px;
   margin: 0 auto;
   min-height: 82px;
-  padding: 12px 24px 0;
+  padding: 12px 24px 12px;
   width: 100%;
 }
 
@@ -102,10 +102,11 @@ img {
   align-items: flex-start;
   gap: 2px;
   flex-shrink: 0;
+  padding-bottom: 8px;
 }
 
 .brand-word {
-  width: 170px;
+  width: 150px;
   height: auto;
   display: block;
 }
@@ -136,15 +137,14 @@ img {
 .hero-shell {
   position: relative;
   width: 100%;
-  min-height: 430px;
-  padding-top: 48px;
-  padding-bottom: 48px;
+  height: 500px;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)), url('/Amzur_assements_banner.webp');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   border-top: 1px solid rgba(86, 71, 111, 0.18);
   border-bottom: 1px solid rgba(86, 71, 111, 0.18);
@@ -154,9 +154,8 @@ img {
 .hero-shell::before {
   content: '';
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 80%;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.55) 68%, rgba(0, 0, 0, 0) 100%);
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.36) 42%, rgba(0, 0, 0, 0.16) 100%);
   pointer-events: none;
 }
 
@@ -166,18 +165,18 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 28px;
-  width: min(1400px, calc(100% - 48px));
-  min-height: 430px;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 500px;
   margin: 0 auto;
-  padding: 60px 24px 60px;
+  padding: 0 24px;
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
-  flex: 0 0 60%;
-  max-width: 60%;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding-left: 0;
   display: flex;
@@ -197,15 +196,16 @@ img {
 .hero-copy h1 {
   margin: 0;
   color: #ffffff;
-  font-size: 60px;
-  line-height: 0.96;
+  font-size: clamp(48px, 5vw, 64px);
+  line-height: 0.9;
   letter-spacing: -0.06em;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .hero-subtext {
   margin-top: 18px;
-  max-width: 560px;
+  max-width: 680px;
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   line-height: 1.6;
@@ -220,10 +220,7 @@ img {
 }
 
 .hero-visual {
-  position: relative;
-  z-index: 1;
-  flex: 0 0 20%;
-  min-height: 220px;
+  display: none;
 }
 
 .assessment-section {
@@ -264,7 +261,7 @@ img {
   display: flex;
   flex-direction: column;
   min-height: 260px;
-  padding: 28px 26px 22px;
+  padding: 32px 30px 28px;
   border: 1px solid rgba(87, 69, 121, 0.18);
   border-radius: 26px;
   background: linear-gradient(110deg, #440463 0%, #963DC0 100%);
@@ -594,12 +591,16 @@ img {
   }
 
   .hero-shell {
+    height: 500px;
+    min-height: 500px;
     flex-direction: column;
     text-align: center;
     padding-top: 26px;
   }
 
   .hero-copy {
+    flex: 0 0 100%;
+    max-width: 100%;
     padding-left: 0;
     align-items: center;
   }
@@ -639,6 +640,16 @@ img {
 @media (max-width: 820px) {
   .landing-page {
     padding: 0 18px 24px;
+  }
+
+  .hero-shell {
+    height: 420px;
+    min-height: 420px;
+  }
+
+  .hero-inner {
+    width: min(100%, calc(100% - 24px));
+    padding: 24px 12px;
   }
 
   .landing-nav {
