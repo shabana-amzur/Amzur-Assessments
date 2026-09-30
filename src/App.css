@@ -115,14 +115,15 @@ img {
 .cta-banner-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   border: none;
-  border-radius: 14px;
-  background: linear-gradient(90deg, #5623d7 0%, #7f46e0 100%);
+  border-radius: 999px;
+  background: #b84cec;
   color: #ffffff;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 12px 28px rgba(95, 60, 204, 0.22);
+  box-shadow: 0 12px 28px rgba(184, 76, 236, 0.22);
 }
 
 .nav-cta {
@@ -136,6 +137,8 @@ img {
   position: relative;
   width: 100%;
   min-height: 430px;
+  padding-top: 48px;
+  padding-bottom: 48px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)), url('/Amzur_assements_banner.webp');
   background-size: cover;
   background-position: center;
@@ -148,8 +151,9 @@ img {
 .hero-shell::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.24));
+  inset: 0 auto 0 0;
+  width: 80%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.55) 68%, rgba(0, 0, 0, 0) 100%);
   pointer-events: none;
 }
 
@@ -163,14 +167,14 @@ img {
   max-width: 1400px;
   min-height: 430px;
   margin: 0 auto;
-  padding: 18px 24px 22px;
+  padding: 60px 24px 60px;
 }
 
 .hero-copy {
   position: relative;
   z-index: 1;
-  flex: 0 0 44%;
-  max-width: 44%;
+  flex: 0 0 90%;
+  max-width: 90%;
   padding-left: 0;
 }
 
@@ -208,190 +212,14 @@ img {
 .hero-visual {
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: flex-end;
-  flex: 0 0 56%;
-  min-width: 0;
-  padding-right: 48px;
-}
-
-.metrics-card {
-  display: flex;
-  align-items: stretch;
-  gap: 12px;
-  width: 100%;
-  max-width: 580px;
-  padding: 12px 12px 0;
-  min-height: 430px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  backdrop-filter: none;
-}
-
-.chart-card {
-  flex: 1;
-  padding: 12px 12px 10px;
-  border: 1px solid rgba(144, 115, 184, 0.18);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.8);
-}
-
-.chart-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  color: #3b1f57;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.donut-wrap {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 12px;
-}
-
-.donut-chart {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: conic-gradient(#9d5ae8 0 72%, #e6e2f0 0 100%);
-  display: grid;
-  place-items: center;
-}
-
-.donut-chart::before {
-  content: '';
-  position: absolute;
-  inset: 14px;
-  background: #fff;
-  border-radius: 50%;
-}
-
-.donut-chart span {
-  position: relative;
-  z-index: 1;
-  color: #3b225d;
-  font-size: 30px;
-  font-weight: 800;
-}
-
-.donut-caption {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  color: #4b3a5d;
-}
-
-.donut-caption strong {
-  font-size: 14px;
-}
-
-.donut-caption em {
-  font-style: normal;
-  color: rgba(74, 52, 88, 0.7);
-  font-size: 12px;
-}
-
-.line-chart {
-  position: relative;
-  height: 140px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(245, 237, 252, 0.6), rgba(255,255,255,0.2));
-  overflow: hidden;
-}
-
-.chart-grid {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(123, 109, 146, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(123, 109, 146, 0.12) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.6;
-}
-
-.line {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 42%;
-  height: 4px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #a32ef6, #d65fe7);
-  transform: skewY(-8deg);
-  box-shadow: 0 0 12px rgba(167, 81, 255, 0.45);
-}
-
-.line-one {
-  clip-path: polygon(0 60%, 18% 42%, 40% 52%, 64% 28%, 100% 46%, 100% 100%, 0 100%);
-}
-
-.chart-labels {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 8px;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  font-size: 10px;
-  color: rgba(48, 35, 59, 0.7);
-  text-align: center;
-}
-
-.side-panel {
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-end;
-  min-width: 0;
-  width: 190px;
-  height: 100%;
-}
-
-.mini-card {
-  width: 190px;
-  min-height: 100%;
-  padding: 18px 16px 12px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, #a55be5, #7b42cf);
-  color: #ffffff;
-  box-shadow: 0 16px 28px rgba(118, 66, 202, 0.25);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.mini-card h3 {
-  margin: 0 0 14px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.impact-value {
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -0.05em;
-}
-
-.impact-label,
-.impact-hours {
-  color: rgba(255, 255, 255, 0.83);
-  font-size: 13px;
-}
-
-.impact-hours {
-  margin-top: 8px;
-  font-size: 16px;
-  font-weight: 700;
+  flex: 0 0 20%;
+  min-height: 220px;
 }
 
 .assessment-section {
   max-width: 1600px;
   margin: 14px auto 0;
-  padding: 22px 30px 18px;
+  padding: 48px 30px 48px;
 }
 
 .section-title-row {
@@ -511,28 +339,28 @@ img {
   width: fit-content;
   margin-top: 18px;
   padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: #0f0f11;
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .assessment-card:hover .assessment-link,
 .assessment-card:focus-visible .assessment-link {
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 10px 18px rgba(19, 10, 26, 0.12);
+  background: #18181b;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 10px 18px rgba(19, 10, 26, 0.12);
   transform: translateX(2px);
 }
 
 .benefits-section {
   max-width: 1600px;
   margin: 14px auto 0;
-  padding: 18px 30px 18px;
+  padding: 48px 30px 48px;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -615,8 +443,9 @@ img {
 .cta-banner {
   position: relative;
   max-width: 1600px;
-  margin: 18px auto 0;
-  padding: 24px 32px;
+  width: calc(100% - 44px);
+  margin: 30px auto;
+  padding: 32px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;

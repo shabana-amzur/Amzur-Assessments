@@ -237,47 +237,7 @@ function HomeLanding() {
               </a>
             </div>
 
-            <div className="hero-visual" aria-hidden="true">
-              <div className="metrics-card">
-                <div className="chart-card">
-                  <div className="chart-head">
-                    <span>Assessment Overview</span>
-                  </div>
-
-                  <div className="donut-wrap">
-                    <div className="donut-chart">
-                      <span>72%</span>
-                    </div>
-                    <div className="donut-caption">
-                      <strong>Overall Score</strong>
-                      <em>Good</em>
-                    </div>
-                  </div>
-
-                  <div className="line-chart">
-                    <div className="chart-grid" />
-                    <span className="line line-one" />
-                    <div className="chart-labels">
-                      <span>Jan</span>
-                      <span>Feb</span>
-                      <span>Mar</span>
-                      <span>Apr</span>
-                      <span>May</span>
-                      <span>Jun</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="side-panel">
-                  <div className="mini-card">
-                    <h3>Potential Impact</h3>
-                    <div className="impact-value">$1.2M</div>
-                    <div className="impact-label">Time Savings</div>
-                    <div className="impact-hours">1,320 hrs</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="hero-visual" aria-hidden="true" />
           </div>
         </section>
 
