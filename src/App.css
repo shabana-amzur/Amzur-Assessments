@@ -283,6 +283,87 @@ img {
   font-weight: 700;
 }
 
+.assessment-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #edf4ff;
+  color: var(--blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.assessment-section {
+  max-width: 1440px;
+  margin: 0 auto 32px;
+  padding: 28px 0 0;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(28px, 3vw, 42px);
+  letter-spacing: -0.06em;
+}
+
+.assessment-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.assessment-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 22px 20px;
+  box-shadow: 0 10px 24px rgba(15, 38, 72, 0.04);
+}
+
+.assessment-card h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+}
+
+.assessment-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.assessment-card a {
+  margin-top: auto;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.site-footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 18px 0 28px;
+  border-top: 1px solid var(--line);
+  color: #7c8ea7;
+  font-size: 13px;
+  text-align: center;
+}
+
 .library-page footer,
 .reference-calculator footer {
   max-width: 1440px;

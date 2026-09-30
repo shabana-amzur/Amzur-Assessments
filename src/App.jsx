@@ -138,6 +138,27 @@ function calculateAssessment(values) {
   }
 }
 
+const assessmentCards = [
+  {
+    title: 'NetSuite Health Assessment',
+    summary: 'Measure operational health, control maturity, and process risk across your NetSuite footprint.',
+    href: '/netsuite-health-assessment',
+    cap: 'Diagnostic',
+  },
+  {
+    title: 'Finance Control Scorecard',
+    summary: 'Benchmark your finance function against leading control, automation, and decision-readiness patterns.',
+    href: '/finance-control-scorecard',
+    cap: 'Scorecard',
+  },
+  {
+    title: 'Slow Close Calculator',
+    summary: 'Estimate the labor and value impact of a slower close and identify where the bottlenecks sit.',
+    href: '/slow-close-calculator',
+    cap: 'Calculator',
+  },
+]
+
 function App() {
   const path = typeof window !== 'undefined' ? window.location.pathname : '/'
 
@@ -158,15 +179,108 @@ function App() {
     return <NetSuiteHealthAssessment />
   }
 
-  return <AssessmentRedirect />
+  return <HomeLanding />
 }
 
-function AssessmentRedirect() {
-  useEffect(() => {
-    window.location.replace('/netsuite-health-assessment')
-  }, [])
+function HomeLanding() {
+  return (
+    <main className="library-page">
+      <header className="library-header">
+        <a href="/" className="library-brand" aria-label="Amzur Assessments home">
+          <img src="https://amzur.com/wp-content/uploads/2022/07/Amzur-logo-2022.png" alt="Amzur" />
+        </a>
 
-  return null
+        <a
+          className="contact-cta"
+          href="https://amzur.com/contact-us/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Contact us <b>→</b>
+        </a>
+      </header>
+
+      <section className="library-body">
+        <div className="library-intro">
+          <p className="eyebrow">AMZUR ASSESSMENTS</p>
+          <h1>
+            Diagnose where <i>your</i> business is losing momentum.
+          </h1>
+          <p>
+            Use practical, business-focused assessments to uncover process gaps, control risk, and operational drag before they become expensive problems.
+          </p>
+
+          <div className="library-strip">
+            <span>NETSUITE</span>
+            <span>FINANCE</span>
+            <span>OPERATIONS</span>
+          </div>
+        </div>
+
+        <div className="library-grid">
+          <article className="featured-assessment">
+            <div className="card-top">
+              <span>FEATURED</span>
+              <b>DIAGNOSTIC</b>
+            </div>
+
+            <div className="featured-copy">
+              <h2>NetSuite Health Assessment</h2>
+              <p>
+                Evaluate where your NetSuite environment is creating efficiency risk, visibility gaps, or control friction across core processes.
+              </p>
+            </div>
+
+            <div className="card-meta">
+              <span>5–7 minutes</span>
+              <span>Business-led</span>
+              <span>Risk-based</span>
+            </div>
+
+            <a className="open-button" href="/netsuite-health-assessment">
+              Start the assessment <b>→</b>
+            </a>
+          </article>
+
+          <div className="secondary-assessments">
+            {assessmentCards.slice(1).map((card) => (
+              <article key={card.title}>
+                <span className="assessment-chip">{card.cap}</span>
+                <h3>{card.title}</h3>
+                <p>{card.summary}</p>
+                <div className="secondary-meta">
+                  <span>{card.cap}</span>
+                  <a href={card.href}>Open →</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="assessment-section">
+        <div className="section-header">
+          <p className="eyebrow">ASSESSMENTS</p>
+          <h2>Explore the tools built for operational clarity.</h2>
+        </div>
+
+        <div className="assessment-card-grid">
+          {assessmentCards.map((card) => (
+            <article key={card.title} className="assessment-card">
+              <span className="assessment-chip">{card.cap}</span>
+              <h3>{card.title}</h3>
+              <p>{card.summary}</p>
+              <a href={card.href}>Open assessment →</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <footer className="site-footer">
+        <span>© {new Date().getFullYear()} Amzur. All rights reserved.</span>
+      </footer>
+    </main>
+  )
 }
 
 function ReferenceCalculator() {
