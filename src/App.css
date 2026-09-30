@@ -88,10 +88,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
   min-height: 82px;
   padding: 12px 24px 0;
+  width: 100%;
 }
 
 .brand-block {
@@ -99,6 +101,7 @@ img {
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
+  flex-shrink: 0;
 }
 
 .brand-word {
@@ -123,8 +126,10 @@ img {
 }
 
 .nav-cta {
+  margin-left: auto;
   padding: 14px 24px;
   font-size: 15px;
+  flex-shrink: 0;
 }
 
 .hero-shell {
