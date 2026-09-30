@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { pushGtmEvent } from '../../ga'
 import './FinanceControlScorecard.css'
 
 const dimensions = {
@@ -106,6 +107,10 @@ function FinanceControlScorecard() {
   }, [phase, index])
 
   const startIndustry = (key) => {
+    pushGtmEvent('assessment_started', {
+      assessment_name: 'finance_control_scorecard',
+      industry: key,
+    })
     setIndustry(key)
     setAnswers({})
     setIndex(0)
@@ -190,6 +195,12 @@ function Results({ result, questions, answers, industry, email, setEmail, sent, 
         payload = { error: responseText.startsWith('<!doctype') ? 'The report service is unavailable in the local Vite server. Test email delivery on the deployed Vercel site.' : responseText || 'The report service returned an invalid response.' }
       }
       if (!response.ok) throw new Error(payload.error || 'Unable to send the report.')
+      pushGtmEvent('assessment_completed', {
+        assessment_name: 'finance_control_scorecard',
+        industry,
+        score: result.overall,
+        tier: tierName,
+      })
       setSent(true)
     } catch (submitError) {
       setError(submitError.message)

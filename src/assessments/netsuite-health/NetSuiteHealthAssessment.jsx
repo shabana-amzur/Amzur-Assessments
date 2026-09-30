@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { pushGtmEvent } from '../../ga'
 import './NetSuiteHealthAssessment.css'
 
 const sections = [
@@ -324,6 +325,11 @@ function NetSuiteHealthAssessment() {
 
   const submitAssessment = () => {
     if (!email.trim()) return
+    pushGtmEvent('assessment_completed', {
+      assessment_name: 'netsuite_health_assessment',
+      score: result.overall,
+      email_present: true,
+    })
     setSent(true)
   }
 
@@ -363,7 +369,16 @@ function NetSuiteHealthAssessment() {
               ))}
             </div>
 
-            <button type="button" className="net-health-start" onClick={() => setPhase('quiz')}>
+            <button
+              type="button"
+              className="net-health-start"
+              onClick={() => {
+                pushGtmEvent('assessment_started', {
+                  assessment_name: 'netsuite_health_assessment',
+                })
+                setPhase('quiz')
+              }}
+            >
               Start the assessment
             </button>
           </section>

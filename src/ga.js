@@ -36,3 +36,12 @@ export function trackPageView(path = window.location.pathname + window.location.
     page_path: path,
   })
 }
+
+export function pushGtmEvent(eventName, payload = {}) {
+  if (typeof window === 'undefined') return
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push({
+    event: eventName,
+    ...payload,
+  })
+}
