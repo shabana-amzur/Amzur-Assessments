@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 import FinanceControlScorecard from './assessments/finance-control/FinanceControlScorecard'
 import NetSuiteHealthAssessment from './assessments/netsuite-health/NetSuiteHealthAssessment'
+import { initGoogleAnalytics, trackPageView } from './ga'
 
 const bottlenecks = [
   'Bank & card reconciliation',
@@ -139,6 +140,11 @@ function calculateAssessment(values) {
 
 function App() {
   const path = typeof window !== 'undefined' ? window.location.pathname : '/'
+
+  useEffect(() => {
+    initGoogleAnalytics()
+    trackPageView(window.location.pathname + window.location.search)
+  }, [])
 
   if (path === '/slow-close-calculator') {
     return <ReferenceCalculator />
