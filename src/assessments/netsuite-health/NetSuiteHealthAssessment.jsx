@@ -560,17 +560,6 @@ function NetSuiteHealthAssessment() {
         )}
       </div>
 
-      <footer className="site-footer">
-        <div className="site-footer__inner">
-          <div className="site-footer__left">
-            <span className="site-footer__dot" aria-hidden="true" />
-            <a className="site-footer__link" href="https://amzur.com/terms-and-conditions/" target="_blank" rel="noreferrer">Terms &amp; Conditions</a>
-            <a className="site-footer__link" href="https://amzur.com/privacy-policy/" target="_blank" rel="noreferrer">Privacy Policy</a>
-          </div>
-
-          <div className="site-footer__copy">© 2026 Amzur Technologies, Inc. All Rights Reserved.</div>
-        </div>
-      </footer>
     </main>
   )
 }

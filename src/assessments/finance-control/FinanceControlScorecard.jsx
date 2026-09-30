@@ -81,22 +81,6 @@ function scoreTier(score) {
   return ['High control risk', 'Core accuracy, control, or reporting weaknesses need immediate attention.', 'danger']
 }
 
-function AmzurFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="site-footer__inner">
-        <div className="site-footer__left">
-          <span className="site-footer__dot" aria-hidden="true" />
-          <a className="site-footer__link" href="https://amzur.com/terms-and-conditions/" target="_blank" rel="noreferrer">Terms &amp; Conditions</a>
-          <a className="site-footer__link" href="https://amzur.com/privacy-policy/" target="_blank" rel="noreferrer">Privacy Policy</a>
-        </div>
-
-        <div className="site-footer__copy">© 2026 Amzur Technologies, Inc. All Rights Reserved.</div>
-      </div>
-    </footer>
-  )
-}
-
 function FinanceControlScorecard() {
   const [phase, setPhase] = useState('intro')
   const [industry, setIndustry] = useState(null)
@@ -165,8 +149,6 @@ function FinanceControlScorecard() {
         {phase === 'industry' && <IndustryPicker onBack={() => setPhase('intro')} onSelect={startIndustry} />}
         {phase === 'quiz' && <Quiz question={questions[index]} number={index + 2} total={16} value={answers[questions[index].id]} onBack={() => index === 0 ? setPhase('industry') : setIndex((current) => current - 1)} onAnswer={chooseAnswer} industry={industries[industry].label} />}
         {phase === 'results' && result && <Results result={result} questions={questions} answers={answers} industry={industries[industry].label} email={email} setEmail={setEmail} sent={sent} setSent={setSent} onRestart={restart} />}
-
-        <AmzurFooter />
       </div>
     </main>
   )
