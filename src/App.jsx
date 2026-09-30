@@ -184,67 +184,148 @@ function App() {
 
 function HomeLanding() {
   return (
-    <main className="library-page">
-      <header className="library-header">
-        <a href="/" className="library-brand" aria-label="Amzur Assessments home">
-          <img src="https://amzur.com/wp-content/uploads/2022/07/Amzur-logo-2022.png" alt="Amzur" />
-        </a>
+    <main className="landing-page">
+      <header className="landing-header">
+        <div className="brand-block" aria-label="Amzur logo">
+          <img
+            className="brand-word"
+            src="https://amzur.com/wp-content/uploads/2023/04/Anzur_logo_2023.png"
+            alt="Amzur"
+          />
+        </div>
 
-        <a
-          className="contact-cta"
-          href="https://amzur.com/contact-us/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Contact us <b>→</b>
+        <a className="nav-cta" href="https://amzur.com/contact-us/" target="_blank" rel="noreferrer">
+          Get in Touch <span>→</span>
         </a>
       </header>
 
-      <section className="hero-banner">
+      <section className="hero-shell">
         <div className="hero-copy">
-          <p className="eyebrow">HOME » DIGITAL</p>
+          <p className="kicker">BUSINESS ASSESSMENTS &amp; CALCULATORS</p>
           <h1>
-            Seamless Digital<br />
-            Solutions for Modern<br />
-            Businesses
+            Assess. Identify.
+            <br />
+            Improve.
           </h1>
           <p className="hero-subtext">
-            Driving your business forward with tailored solutions that empower, innovate, and transcend the ordinary.
+            Explore interactive assessments and calculators designed to help you identify gaps, quantify impact,
+            and uncover opportunities for improvement.
           </p>
+          <a className="cta-button" href="#assessment-section">
+            Explore Assessments <span>→</span>
+          </a>
         </div>
 
         <div className="hero-visual" aria-hidden="true">
-          <div className="visual-shell">
-            <div className="visual-orb orb-one" />
-            <div className="visual-orb orb-two" />
-            <div className="visual-card visual-card-left" />
-            <div className="visual-card visual-card-right" />
-            <div className="visual-bar" />
+          <div className="metrics-card">
+            <div className="chart-card">
+              <div className="chart-head">
+                <span>Assessment Overview</span>
+              </div>
+
+              <div className="donut-wrap">
+                <div className="donut-chart">
+                  <span>72%</span>
+                </div>
+                <div className="donut-caption">
+                  <strong>Overall Score</strong>
+                  <em>Good</em>
+                </div>
+              </div>
+
+              <div className="line-chart">
+                <div className="chart-grid" />
+                <span className="line line-one" />
+                <div className="chart-labels">
+                  <span>Jan</span>
+                  <span>Feb</span>
+                  <span>Mar</span>
+                  <span>Apr</span>
+                  <span>May</span>
+                  <span>Jun</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="side-panel">
+              <div className="mini-card">
+                <h3>Potential Impact</h3>
+                <div className="impact-value">$1.2M</div>
+                <div className="impact-label">Time Savings</div>
+                <div className="impact-hours">1,320 hrs</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="assessment-section">
-        <div className="section-header">
-          <p className="eyebrow">ASSESSMENTS</p>
-          <h2>Explore the tools built for operational clarity.</h2>
+      <section id="assessment-section" className="assessment-section">
+        <div className="section-title-row">
+          <span className="section-dot">•</span>
+          <h2>Choose Your Assessment</h2>
+          <span className="section-dot">•</span>
         </div>
 
         <div className="assessment-card-grid">
-          {assessmentCards.map((card) => (
-            <article key={card.title} className="assessment-card">
-              <span className="assessment-chip">{card.cap}</span>
-              <h3>{card.title}</h3>
+          {assessmentCards.map((card, index) => (
+            <a key={card.title} href={card.href} className="assessment-card assessment-card--gradient">
+              <div className="assessment-step">0{index + 1}</div>
+              <div className="assessment-header">
+                <h3>{card.title}</h3>
+                <span className="card-icon">{index === 0 ? '⏱' : index === 1 ? '✓' : '◔'}</span>
+              </div>
               <p>{card.summary}</p>
-              <a href={card.href}>Open assessment →</a>
-            </article>
+              <span className="assessment-link">{index === 0 ? 'Calculate Now' : index === 1 ? 'Take the Scorecard' : 'Start Assessment'} →</span>
+            </a>
           ))}
         </div>
       </section>
 
-      <footer className="site-footer">
-        <span>© {new Date().getFullYear()} Amzur. All rights reserved.</span>
-      </footer>
+      <section className="benefits-section">
+        <div className="benefits-copy">
+          <h2>Why Take an Assessment?</h2>
+          <p>
+            Our assessments help you make informed decisions and drive meaningful improvements across your business.
+          </p>
+        </div>
+
+        <div className="benefits-grid">
+          <article className="benefit-item">
+            <div className="benefit-icon">◌</div>
+            <h3>Identify Gaps</h3>
+            <p>Uncover process, financial, or system-level gaps that may be affecting your business.</p>
+          </article>
+
+          <article className="benefit-item">
+            <div className="benefit-icon">▤</div>
+            <h3>Quantify Impact</h3>
+            <p>Turn operational challenges into measurable business impact.</p>
+          </article>
+
+          <article className="benefit-item">
+            <div className="benefit-icon">◐</div>
+            <h3>Get Actionable Insights</h3>
+            <p>Use your results to identify practical areas for improvement.</p>
+          </article>
+
+          <article className="benefit-item">
+            <div className="benefit-icon">◎</div>
+            <h3>Make Informed Decisions</h3>
+            <p>Get a clearer picture before investing time and resources in change.</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="cta-banner">
+        <div className="cta-badge">✦</div>
+        <div className="cta-copy">
+          <h3>We&apos;re here to help you succeed.</h3>
+          <p>Need help choosing the right assessment? Contact our experts today.</p>
+        </div>
+        <a className="cta-banner-button" href="https://amzur.com/contact-us/" target="_blank" rel="noreferrer">
+          Get in Touch <span>→</span>
+        </a>
+      </section>
     </main>
   )
 }
