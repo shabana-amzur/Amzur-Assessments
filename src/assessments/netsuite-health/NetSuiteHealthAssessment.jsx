@@ -569,8 +569,6 @@ function NetSuiteHealthAssessment() {
           </div>
 
           <div className="site-footer__copy">© 2026 Amzur Technologies, Inc. All Rights Reserved.</div>
-
-          <div className="site-footer__copy">© 2026 Amzur Technologies, Inc. All Rights Reserved.</div>
         </div>
       </footer>
     </main>

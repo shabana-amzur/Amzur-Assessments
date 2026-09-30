@@ -218,181 +218,183 @@ function HomeLanding() {
         </a>
       </header>
 
-      <section className="hero-shell">
-        <div className="hero-inner">
-          <div className="hero-copy">
-            <p className="kicker">BUSINESS ASSESSMENTS &amp; CALCULATORS</p>
-            <h1>
-              Assess. Identify.
-              <br />
-              Improve.
-            </h1>
-            <p className="hero-subtext">
-              Explore interactive assessments and calculators designed to help you identify gaps, quantify impact,
-              and uncover opportunities for improvement.
+      <div className="landing-content">
+        <section className="hero-shell">
+          <div className="hero-inner">
+            <div className="hero-copy">
+              <p className="kicker">BUSINESS ASSESSMENTS &amp; CALCULATORS</p>
+              <h1>
+                Assess. Identify.
+                <br />
+                Improve.
+              </h1>
+              <p className="hero-subtext">
+                Explore interactive assessments and calculators designed to help you identify gaps, quantify impact,
+                and uncover opportunities for improvement.
+              </p>
+              <a className="cta-button" href="#assessment-section">
+                Explore Assessments <span>→</span>
+              </a>
+            </div>
+
+            <div className="hero-visual" aria-hidden="true">
+              <div className="metrics-card">
+                <div className="chart-card">
+                  <div className="chart-head">
+                    <span>Assessment Overview</span>
+                  </div>
+
+                  <div className="donut-wrap">
+                    <div className="donut-chart">
+                      <span>72%</span>
+                    </div>
+                    <div className="donut-caption">
+                      <strong>Overall Score</strong>
+                      <em>Good</em>
+                    </div>
+                  </div>
+
+                  <div className="line-chart">
+                    <div className="chart-grid" />
+                    <span className="line line-one" />
+                    <div className="chart-labels">
+                      <span>Jan</span>
+                      <span>Feb</span>
+                      <span>Mar</span>
+                      <span>Apr</span>
+                      <span>May</span>
+                      <span>Jun</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="side-panel">
+                  <div className="mini-card">
+                    <h3>Potential Impact</h3>
+                    <div className="impact-value">$1.2M</div>
+                    <div className="impact-label">Time Savings</div>
+                    <div className="impact-hours">1,320 hrs</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="assessment-section" className="assessment-section">
+          <div className="section-title-row">
+            <h2>Choose Your Assessment</h2>
+          </div>
+
+          <div className="assessment-card-grid">
+            {assessmentCards.map((card, index) => (
+              <a key={card.title} href={card.href} className="assessment-card assessment-card--gradient">
+                <div className="assessment-step" aria-hidden="true">
+                  <img src={card.icon} alt="" className="assessment-step-icon" />
+                </div>
+                <div className="assessment-header">
+                  <h3>{card.title}</h3>
+                </div>
+                <p>{card.summary}</p>
+                <span className="assessment-link">{index === 0 ? 'Calculate Now' : index === 1 ? 'Take the Scorecard' : 'Start Assessment'} →</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        <section className="benefits-section">
+          <div className="benefits-copy">
+            <h2>Why Take an Assessment?</h2>
+            <p>
+              Our assessments help you make informed decisions and drive meaningful improvements across your business.
             </p>
-            <a className="cta-button" href="#assessment-section">
-              Explore Assessments <span>→</span>
-            </a>
           </div>
 
-          <div className="hero-visual" aria-hidden="true">
-            <div className="metrics-card">
-              <div className="chart-card">
-                <div className="chart-head">
-                  <span>Assessment Overview</span>
-                </div>
-
-                <div className="donut-wrap">
-                  <div className="donut-chart">
-                    <span>72%</span>
-                  </div>
-                  <div className="donut-caption">
-                    <strong>Overall Score</strong>
-                    <em>Good</em>
-                  </div>
-                </div>
-
-                <div className="line-chart">
-                  <div className="chart-grid" />
-                  <span className="line line-one" />
-                  <div className="chart-labels">
-                    <span>Jan</span>
-                    <span>Feb</span>
-                    <span>Mar</span>
-                    <span>Apr</span>
-                    <span>May</span>
-                    <span>Jun</span>
-                  </div>
-                </div>
+          <div className="benefits-grid">
+            <article className="benefit-item">
+              <div className="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="11" cy="11" r="5.5" stroke="currentColor" strokeWidth="1.7" />
+                  <path d="M15.5 15.5L20 20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M11 6.5V11L13.8 13.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
+              <h3>Identify Gaps</h3>
+              <p>Uncover process, financial, or system-level gaps that may be affecting your business.</p>
+            </article>
 
-              <div className="side-panel">
-                <div className="mini-card">
-                  <h3>Potential Impact</h3>
-                  <div className="impact-value">$1.2M</div>
-                  <div className="impact-label">Time Savings</div>
-                  <div className="impact-hours">1,320 hrs</div>
-                </div>
+            <article className="benefit-item">
+              <div className="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 18.5H20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M7 15.5V11" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M12 15.5V7.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M17 15.5V4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M3.5 20.5L7 18L10.5 19.5L14 16L18 17.5L20.5 15.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-            </div>
+              <h3>Quantify Impact</h3>
+              <p>Turn operational challenges into measurable business impact.</p>
+            </article>
+
+            <article className="benefit-item">
+              <div className="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 14.5L10 18.5L18.5 6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M5 9.5H8.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M15.5 5.5H18.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <circle cx="5.5" cy="9.5" r="1.5" stroke="currentColor" strokeWidth="1.4" />
+                  <circle cx="18.5" cy="5.5" r="1.5" stroke="currentColor" strokeWidth="1.4" />
+                </svg>
+              </div>
+              <h3>Get Actionable Insights</h3>
+              <p>Use your results to identify practical areas for improvement.</p>
+            </article>
+
+            <article className="benefit-item">
+              <div className="benefit-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="7.2" stroke="currentColor" strokeWidth="1.7" />
+                  <path d="M12 4.8V2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M12 21.5V19.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M19.2 12H21.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M2.5 12H4.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M16.5 7.5L18.3 5.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M5.7 18.3L7.5 16.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M7.5 7.5L5.7 5.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <path d="M18.3 18.3L16.5 16.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                  <circle cx="12" cy="12" r="2.3" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              </div>
+              <h3>Make Informed Decisions</h3>
+              <p>Get a clearer picture before investing time and resources in change.</p>
+            </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="assessment-section" className="assessment-section">
-        <div className="section-title-row">
-          <h2>Choose Your Assessment</h2>
-        </div>
-
-        <div className="assessment-card-grid">
-          {assessmentCards.map((card, index) => (
-            <a key={card.title} href={card.href} className="assessment-card assessment-card--gradient">
-              <div className="assessment-step" aria-hidden="true">
-                <img src={card.icon} alt="" className="assessment-step-icon" />
-              </div>
-              <div className="assessment-header">
-                <h3>{card.title}</h3>
-              </div>
-              <p>{card.summary}</p>
-              <span className="assessment-link">{index === 0 ? 'Calculate Now' : index === 1 ? 'Take the Scorecard' : 'Start Assessment'} →</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="benefits-section">
-        <div className="benefits-copy">
-          <h2>Why Take an Assessment?</h2>
-          <p>
-            Our assessments help you make informed decisions and drive meaningful improvements across your business.
-          </p>
-        </div>
-
-        <div className="benefits-grid">
-          <article className="benefit-item">
-            <div className="benefit-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="11" cy="11" r="5.5" stroke="currentColor" strokeWidth="1.7" />
-                <path d="M15.5 15.5L20 20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M11 6.5V11L13.8 13.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <h3>Identify Gaps</h3>
-            <p>Uncover process, financial, or system-level gaps that may be affecting your business.</p>
-          </article>
-
-          <article className="benefit-item">
-            <div className="benefit-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 18.5H20" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M7 15.5V11" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M12 15.5V7.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M17 15.5V4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M3.5 20.5L7 18L10.5 19.5L14 16L18 17.5L20.5 15.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <h3>Quantify Impact</h3>
-            <p>Turn operational challenges into measurable business impact.</p>
-          </article>
-
-          <article className="benefit-item">
-            <div className="benefit-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 14.5L10 18.5L18.5 6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M5 9.5H8.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M15.5 5.5H18.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <circle cx="5.5" cy="9.5" r="1.5" stroke="currentColor" strokeWidth="1.4" />
-                <circle cx="18.5" cy="5.5" r="1.5" stroke="currentColor" strokeWidth="1.4" />
-              </svg>
-            </div>
-            <h3>Get Actionable Insights</h3>
-            <p>Use your results to identify practical areas for improvement.</p>
-          </article>
-
-          <article className="benefit-item">
-            <div className="benefit-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="7.2" stroke="currentColor" strokeWidth="1.7" />
-                <path d="M12 4.8V2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M12 21.5V19.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M19.2 12H21.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M2.5 12H4.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M16.5 7.5L18.3 5.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M5.7 18.3L7.5 16.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M7.5 7.5L5.7 5.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <path d="M18.3 18.3L16.5 16.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-                <circle cx="12" cy="12" r="2.3" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-            </div>
-            <h3>Make Informed Decisions</h3>
-            <p>Get a clearer picture before investing time and resources in change.</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="cta-banner">
-        <div className="cta-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2.8V7.4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <path d="M12 16.6V21.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <path d="M4.1 12H8.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <path d="M15.3 12H19.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <path d="M6.1 6.1L8.8 8.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <path d="M15.2 15.2L17.9 17.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <path d="M17.9 6.1L15.2 8.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <path d="M8.8 15.2L6.1 17.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-            <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.3" />
-          </svg>
-        </div>
-        <div className="cta-copy">
-          <h3>We&apos;re here to help you succeed.</h3>
-          <p>Need help choosing the right assessment? Contact our experts today.</p>
-        </div>
-        <a className="cta-banner-button" href="https://amzur.com/contact-us/" target="_blank" rel="noreferrer">
-          Get in Touch <span>→</span>
-        </a>
-      </section>
+        <section className="cta-banner">
+          <div className="cta-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.8V7.4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M12 16.6V21.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M4.1 12H8.7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M15.3 12H19.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M6.1 6.1L8.8 8.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M15.2 15.2L17.9 17.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M17.9 6.1L15.2 8.8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <path d="M8.8 15.2L6.1 17.9" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+              <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.3" />
+            </svg>
+          </div>
+          <div className="cta-copy">
+            <h3>We&apos;re here to help you succeed.</h3>
+            <p>Need help choosing the right assessment? Contact our experts today.</p>
+          </div>
+          <a className="cta-banner-button" href="https://amzur.com/contact-us/" target="_blank" rel="noreferrer">
+            Get in Touch <span>→</span>
+          </a>
+        </section>
+      </div>
 
       <AmzurFooter />
     </main>
