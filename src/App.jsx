@@ -64,6 +64,21 @@ const currencyMap = {
   INR: 'en-IN',
 }
 
+const pageMetadata = {
+  '/slow-close-calculator': {
+    title: 'Financial Close Cost Calculator | Amzur',
+    description: 'Estimate the time, labor cost, and capacity lost to your monthly financial close with Amzur\'s close calculator.',
+  },
+  '/finance-control-scorecard': {
+    title: 'Finance Control Scorecard | Amzur',
+    description: 'Evaluate financial controls, close automation, operational performance, and decision readiness with Amzur\'s finance scorecard.',
+  },
+  '/netsuite-health-assessment': {
+    title: 'NetSuite Health Assessment | Amzur',
+    description: 'Assess NetSuite performance, integrations, customizations, and operational health with Amzur\'s guided assessment.',
+  },
+}
+
 function formatMoney(value, currency) {
   return new Intl.NumberFormat(currencyMap[currency] || 'en-US', {
     style: 'currency',
@@ -180,6 +195,12 @@ function AmzurFooter() {
 
 function App() {
   const path = typeof window !== 'undefined' ? window.location.pathname : '/'
+  const metadata = pageMetadata[path] || pageMetadata['/netsuite-health-assessment']
+
+  useEffect(() => {
+    document.title = metadata.title
+    document.querySelector('meta[name="description"]')?.setAttribute('content', metadata.description)
+  }, [metadata])
 
   useEffect(() => {
     initGoogleAnalytics()
